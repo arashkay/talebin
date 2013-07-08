@@ -1,0 +1,111 @@
+!!! 5
+%html
+  %head
+    %title Talebin.com طالع بین
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+    %meta{ 'http-equiv' => "Content-type", :content => "text/html; charset=utf-8" }
+    =stylesheet_link_tag "all", :media => "all"
+    =javascript_include_tag "all"
+    =csrf_meta_tags
+    -if Rails.env == 'production'
+      :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-11707985-5']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+  %body
+    .menu.navbar.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          %ul.nav.nav-pills
+            %li{ :class => 'active' }
+              %a{ :href => root_path }صفحه اصلی
+            %li
+              %a{ :href => horoscopes_path }طالع ستارگان
+            %li
+              %a{ :href => cards_path }طالع کارت
+            %li
+              %a{ :href => tarots_path }کارت های تاروت
+          %ul.nav.pull-left
+            -if user_signed_in?
+              %li.dropdown.message
+                %a.dropdown-toggle{ :data => { :toggle => 'dropdown' } }
+                  %i.icon-envelope
+                  پیغام ها
+                  %span.img-circle.new 15
+                %ul.dropdown-menu
+                  %li.nav-header
+                    %a
+                      %i.icon-suitcase
+                      پیغام های دریافتی
+                  %li
+                    %a
+                      %img.img-rounded{ :src => 'arash.jpg' }
+                      ژامک گفت : چطوری سوسک جون ...
+                  %li
+                    %a
+                      %img.img-rounded{ :src => 'arash.jpg' }
+                      ژامک گفت : چطوری سوسک جون ...
+                  %li.divider
+                  %li
+                    %a
+                      %i.icon-pencil
+                      ارسال پیغام 
+              %li.dropdown.user
+                %a.dropdown-toggle{ :data => { :toggle => 'dropdown' } }
+                  %i.icon-user
+                  =current_user.name
+                %ul.dropdown-menu
+                  %li
+                    %a
+                      %i.icon-home
+                      پنل کاربری
+                  %li.divider
+                  %li
+                    %a
+                      %i.icon-eye-open
+                      شما از دید دیگران
+                  %li
+                    %a
+                      %i.icon-cogs
+                      تغییر اطلاعات
+              %li.exit
+                =link_to '<i class="icon-off"></i>خروج'.html_safe, destroy_user_session_path, :method => :delete
+            -else
+              %li.login
+                %a{ :href => new_user_session_path }
+                  ورود
+              %li.dropdown.message
+                %a.dropdown-toggle{ :data => { :toggle => 'dropdown' } }
+                  %i.icon-envelope
+                  پیغام ها
+                  %span.img-circle.new 1
+                %ul.dropdown-menu
+                  %li.nav-header
+                    %a
+                      %i.icon-suitcase
+                      پیغام های دریافتی
+                  %li
+                    %a{ :href => new_user_session_path }
+                      %img.img-rounded{ :src => 'arash.jpg' }
+                      طالع بین : دوستانتان منتظر شما ..
+                  %li.divider
+                  %li
+                    %a
+                      %i.icon-pencil
+                      ارسال پیغام 
+    .container-fluid
+      .row-fluid
+        .header.span12
+      .row-fluid
+        .page
+          - if notice
+            .alert.alert-info= notice
+          - if alert
+            .alert= alert
+          =yield

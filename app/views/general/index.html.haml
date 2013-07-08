@@ -1,0 +1,34 @@
+.row-fluid.margined
+  .span12
+    .box
+      .reload{ :data => { :remote => suggest_path, :callback => 'talebin.core.suggestions' } }
+        %i.icon-refresh.icon-3x
+      %h4 نظر شما در مورد این افراد؟
+      .row-fluid.quicklist.fn-suggestions
+        .template
+          .user.fn-suggestion{ :loop => :true }
+            %img.img-rounded{ :src => '%#avatar_medium%' }
+            %span %#name%
+            .thumbs
+              %i.icon-thumbs-up.icon-2x.icon-flip-horizontal
+              %i.icon-thumbs-down.icon-2x
+        -@suggestions.each do |user|
+          .user.fn-suggestion
+            %img.img-rounded{ :src => user.avatar(:medium) }
+            %span= user.name
+            .thumbs
+              %i.icon-thumbs-up.icon-2x.icon-flip-horizontal
+              %i.icon-thumbs-down.icon-2x
+.row-fluid
+  .span4
+    .box
+  .span8
+    .box
+      .row-fluid
+        .span2
+          %img.img-rounded{ :src => current_user.avatar(:medium) }
+        .span4
+          %h4= current_user.name
+          %h5.blue کارت امروز شما
+          %img{ :src => "/assets/cards/small/#{current_user.today[:card][:name]}.png" }
+          %span= current_user.today[:card][:description]

@@ -1,0 +1,105 @@
+body
+  background: url(/assets/white_wall.png)
+.menu
+  margin-bottom: 0
+  .navbar-inner
+    border: none
+    box-shadow: 0 0 5px #000
+  .navbar-inner, .dropdown-menu
+    background: #438EB9
+    li
+      &:hover
+        background: #E5E5E5
+      &.active a
+        color: #000
+      a
+        color: #fff
+        text-shadow: none
+        background: none !important
+        box-shadow: none !important
+    li.dropdown
+      .dropdown-toggle
+        cursor: pointer
+        color: #fff !important
+        .new
+          color: #fff
+          padding: 3px
+      .dropdown-menu
+        margin-top: 7px
+      &:hover
+        .dropdown-toggle
+          background: #1D7C56
+      &.message
+        background: #2E8965
+        .new
+          background: #82AF6F
+          padding: 0 5px
+        .dropdown-menu
+          background: #2E8965
+          li.nav-header
+            background: #5E9680 !important
+            box-shadow: inset 0 -5px 5px -5px #15593E
+            border-bottom: #185B40 1px solid
+            border-top: #15593E 1px solid
+            padding: 5px 0
+          li.divider
+            background: #185B40
+            border-bottom-color: #15593E
+          li:hover
+            background: #82AF6F
+          &:after
+            border-bottom-color: #2E8965
+      &.user
+        background: #444
+        .dropdown-menu
+          background: #444
+          li.divider
+            background: #333
+            border-bottom-color: #222
+          li:hover
+            background: #555
+          &:after
+            border-bottom-color: #444
+    li.exit, li.login
+      cursor: pointer
+      background: #B23563
+      a
+        color: #fff !important
+      &:hover
+        background: #A02B56
+    li.login
+      background: #29566D
+      &:hover
+        background: #1D4A60
+.header
+  box-shadow: 0 0 3px #000
+  background: #000 url(/assets/header.jpg) bottom center no-repeat
+  height: 320px
+  border-radius: 0px 0px 15px 15px
+.page
+  margin: 10px auto 30px
+.box
+  background: #fff
+  border-radius: 5px
+  box-shadow: 0 0 3px #bbb
+  padding: 10px
+  padding-bottom: 20px
+  position: relative
+.margined
+  margin: 10px auto
+.template
+  display: none
+
+
+.reload
+  position: absolute
+  color: #438EB9
+  left: 30px
+  top: 20px
+  cursor: pointer
+  &:hover
+    color: #0E8BCE
+    text-shadow: 0px 0px 1px #333
+
+.blue
+  color: #0E8BCE
