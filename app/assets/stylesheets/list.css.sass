@@ -1,4 +1,4 @@
-.quicklist 
+.quicklist, .friendslist
   .user
     float: right
     display: inline-table
@@ -27,6 +27,8 @@
     &:hover
       span, .thumbs i
         opacity: 1
+.quicklist
+  .user
     .thumbs
       z-index: 11
       position: absolute
@@ -53,3 +55,8 @@
         &:hover
           color: #E80432
           padding-top: 6px
+.friendslist
+  .user
+    span
+      font-size: 12px
+      height: 30px

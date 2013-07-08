@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'mysql2'
 
 gem 'json'
+gem 'amistad'
 gem 'haml-rails'
 gem 'devise'
 gem 'oa-openid', :require => 'omniauth/openid'

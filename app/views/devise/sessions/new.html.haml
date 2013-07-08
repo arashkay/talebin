@@ -1,0 +1,24 @@
+.row-fluid.margined
+  .span12
+    .box
+      .row-fluid
+        .span8
+          %h1 طالع بین 
+        .span4
+          %h4 کاربر هستید؟
+          =form_for resource, :as => resource_name, :url => session_path(resource_name), :class => 'form-horizontal' do |f|
+            .control-group
+              =f.label :email, 'نام کاربری ', :class => 'control-label'
+              .controls
+                =f.email_field :email, :autofocus => true
+            .control-group
+              =f.label :password, 'رمز کاربری'
+              .controls
+                =f.password_field :password
+            .control-group
+              .control
+                %label.checkbox
+                  = f.check_box :remember_me
+                  من را به خاطر بسپار
+              = f.submit 'ورود', :class => 'btn'
+          = render "devise/shared/links"

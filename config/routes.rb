@@ -9,7 +9,7 @@ TalebinCom::Application.routes.draw do
   end
   
   post '/users/suggest' => 'users#suggest', :as => :suggest
-
+  get '/home' => 'users#home', :as => :home
   resources :cards
   resources :tarots
   resources :horoscopes

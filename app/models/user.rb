@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable #, :omniauthable #, :confirmable
   has_attached_file :avatar, :styles => { :medium => "120x120#", :thumb => "50x50#" }, :default_url => "/images/avatar.jpg"
+  include Amistad::FriendModel
+  #acts_as_network :friends, :through => :invites, :conditions => "is_accepted = true"
   
   serialize :today
 
