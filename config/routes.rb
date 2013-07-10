@@ -8,6 +8,7 @@ TalebinCom::Application.routes.draw do
     match 'user_confirmation_url' => 'devise/confirmation#new'
   end
   
+  get '/user/:hid' => 'users#show', :as => :user
   post '/users/suggest' => 'users#suggest', :as => :suggest
   get '/home' => 'users#home', :as => :home
   resources :cards

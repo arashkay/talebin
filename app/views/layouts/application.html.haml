@@ -62,12 +62,12 @@
                   =current_user.name
                 %ul.dropdown-menu
                   %li
-                    %a
+                    %a{ :href => home_path }
                       %i.icon-home
                       پنل کاربری
                   %li.divider
                   %li
-                    %a
+                    %a{ :href => user_path(current_user.hid)}
                       %i.icon-eye-open
                       شما از دید دیگران
                   %li

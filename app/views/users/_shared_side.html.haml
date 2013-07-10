@@ -1,0 +1,7 @@
+.box
+  %h4 دوستان شما
+  .row-fluid.friendslist
+    -user.friends.each do |u|
+      %a.user{ :href => user_path(u.hid) }
+        %img.img-rounded{ :src => u.avatar(:medium) }
+        %span= u.name

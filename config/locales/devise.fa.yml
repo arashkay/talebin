@@ -1,0 +1,48 @@
+# Additional translations at http://github.com/plataformatec/devise/wiki/I18n
+
+fa:
+  errors:
+    messages:
+      not_found: "پیدا نشد"
+      already_confirmed: "قبلا تایید شده. لطفا وارد سیستم شوید."
+      not_locked: "قفل نبود."
+      not_saved:
+        one: "1 خطا جلوی ذخیره شدن %{resource} را گرفت:"
+        other: "%{count} خطا جلوی ذخیره شدن %{resource} را گرفت:"
+
+  devise:
+    failure:
+      unauthenticated: 'شما باید در سیستم عضو باشید تا این عمل را انجام دهید.'
+      unconfirmed: 'قبل از ادامه عملیات شما باید اطلاعات خود را از طریق ایمیل ارسالی تایید کنید.'
+      locked: 'کاربر شما قفل شد.'
+      invalid: 'رمز عبور یا ایمیل معتبر نمی باشد.'
+      invalid_token: 'خطا در تشخیص کاربری.'
+      timeout: 'مدت کاربری شما به پایان رسید. لطفا دوباره وارد سیستم شوید.'
+      inactive: 'کاربر شما هنوز فعال نشده است.'
+    sessions:
+      signed_in: 'ورود با موفقیت انجام شد.'
+      signed_out: 'خروج با موفقیت انجام شد.'
+    passwords:
+      send_instructions: 'شما به زودی ایمیلی با دستور عمل لازم جهت بازیابی رمز عبور خود خواهید گرفت.'
+      updated: 'رمز عبور شما با موفقیت تغییر کرد و شما وارد سیستم شدید.'
+    confirmations:
+      send_instructions: 'شما به زودی ایمیلی با دستور عمل لازم جهت تایید و فعال سازی کاربر خود خواهید گرفت.'
+      confirmed: 'کاربر شما با موفقیت فعال شد و شما وارد سیستم شدید.'
+    registrations:
+      signed_up: 'شما با موفقیت وارد سیستم شدید. به طالع بین خوش آمدید.'
+      inactive_signed_up: 'شما با موفقیت در سیستم عضو شدید اما به دلیل %{reason} نتوانستید وارد سیستم شوید.'
+      updated: 'اطلاعات کاربری شما با موفقیت به روز شد.'
+      destroyed: 'اطلاعات کاربر شما از سیستم حذف گردید. به امید دیدار شما به زودی.'
+    unlocks:
+      send_instructions: 'شما به زودی ایمیلی با دستور عمل لازم جهت فعال سازی کاربر خود خواهید گرفت.'
+      unlocked: 'کاربر شما با موفقیت فعال شد و شما وارد سیستم شدید.'
+    omniauth_callbacks:
+      success: 'شما با موفقیت از طریق %{kind} وارد سیستم شدید.'
+      failure: 'به دلیل "%{reason}"، %{kind} به شما اجازه ورود نداد.'
+    mailer:
+      confirmation_instructions:
+        subject: 'چگونگی تایید اطلاعات کاربری'
+      reset_password_instructions:
+        subject: 'چگونگی بازیابی رمز عبور'
+      unlock_instructions:
+        subject: 'چگونگی فعال سازی مجدد کاربر '

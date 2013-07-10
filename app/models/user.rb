@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable #, :omniauthable #, :confirmable
   has_attached_file :avatar, :styles => { :medium => "120x120#", :thumb => "50x50#" }, :default_url => "/images/avatar.jpg"
   include Amistad::FriendModel
-  #acts_as_network :friends, :through => :invites, :conditions => "is_accepted = true"
   
   serialize :today
 
@@ -29,6 +28,11 @@ class User < ActiveRecord::Base
       return new_day
     end
     self[:today]
+  end
+
+  def horoscope
+    @horoscope = Horoscope.first :conditions => { :date => (Time.now.beginning_of_week-2.days).strftime("%y-%m-%d"), :sign => JalaliDate.to_jalali(birthdate).month } unless birthdate.blank? || !@horoscope.blank?
+    @horoscope
   end
 
 end
