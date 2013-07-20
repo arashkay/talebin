@@ -1,7 +1,17 @@
 .box
-  %h4 دوستان شما
+  %h4 دوستان
+  - unless user.friends.blank?
+    .row-fluid.friendslist
+      -user.friends.each do |u|
+        %a.user{ :href => user_path(u.hid) }
+          %img.img-rounded{ :src => u.avatar(:medium) }
+          %span= u.name
+  -else
+    .alert بدون دوست.
+  %h5 آیا این افراد را می شناسید؟
   .row-fluid.friendslist
-    -user.friends.each do |u|
+    -User.where(:id => current_user.today[:suggestions]).all.each do |u|
       %a.user{ :href => user_path(u.hid) }
         %img.img-rounded{ :src => u.avatar(:medium) }
         %span= u.name
+  %p.alert این لیست روزی یکبار به روز رسانی می شود.

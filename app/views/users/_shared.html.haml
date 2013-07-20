@@ -1,9 +1,20 @@
 .box
+  - unless current_user == user
+    .actions
+      .pulled-left
+        - unless current_user.invited? user
+          %a.btn.btn-success{ :data => { :remote => invite_path(user.id), :callback => 'talebin.core.invite' } }
+            %i.icon-plus
+            دعوت به دوستی
+        %a.btn.btn-info
+          %i.icon-envelope
+          ارسال پیغام
   .row-fluid
     .span2
       %img.img-rounded{ :src => user.avatar(:medium) }
     .span10
-      %h4= user.name
+      %h4
+        = user.name
       %h5.blue کارت امروز شما
       %img{ :src => "/assets/cards/small/#{user.today[:card][:name]}.png" }
       %span= user.today[:card][:description]

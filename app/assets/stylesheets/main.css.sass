@@ -1,5 +1,14 @@
 body
   background: url(/assets/white_wall.png)
+h1
+  font-size: 2em
+h2
+  font-size: 1.5em
+h3
+  font-size: 1.2em
+h4, h5
+  font-size: 1.1em
+
 .menu
   margin-bottom: 0
   .navbar-inner
@@ -17,6 +26,8 @@ body
         text-shadow: none
         background: none !important
         box-shadow: none !important
+        i
+          vertical-align: middle
     li.dropdown
       .dropdown-toggle
         cursor: pointer
@@ -85,11 +96,45 @@ body
   padding: 10px
   padding-bottom: 20px
   position: relative
+  &.horoscope
+    background: url(/assets/horoscope.jpg) no-repeat
+    background-size: 100% auto
+  &.tarot
+    background: url(/assets/tarot.jpg) no-repeat
+    background-size: 100% auto
+  &.cards
+    background: url(/assets/cards.jpg) no-repeat
+    background-size: 100% auto
 .margined
   margin: 10px auto
 .template
   display: none
 
+.loading
+  display: none
+  background: rgba(0,0,0,0.5)
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 5000
+  .loader
+    position: fixed
+    top: 50%
+    left: 50%
+    width: 340px
+    height: 40px
+    margin-top: -100px
+    margin-left: -170px
+    background: #fff url(/assets/load.gif) center 20px no-repeat
+    text-align: center
+    padding-top: 140px
+    color: #14A2D4
+    font-weight: bold
+    font-size: 20px
+    border-radius: 10px
+    box-shadow: 0 0 5px #fff
 
 .reload
   position: absolute
@@ -103,3 +148,36 @@ body
 
 .blue
   color: #0E8BCE
+
+.actions
+  position: absolute
+  left: 10px
+  top: 10px
+  a
+    i
+      vertical-align: middle
+
+.tarotspread5
+  position: relative
+  height: 730px
+  width: 500px
+  padding: 0px 0px 0px
+  margin: auto
+  background: url(/assets/tarots/tarot-spread.jpg) center bottom no-repeat
+  *
+    position: absolute
+  .pos1
+    top: 33%
+    left: 36%
+  .pos2
+    top: 33%
+    left: 0%
+  .pos3
+    top: 33%
+    right: 0%
+  .pos4
+    bottom: 4%
+    left: 36%
+  .pos5
+    top: 0%
+    left: 36%

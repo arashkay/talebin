@@ -1,0 +1,11 @@
+.box
+  %h4 جدیدترین اعضا
+  %p با دعوت دوستان خود به طالع بین دات کام محیطی گرم و جذاب برای مشاهده طالع خود ایجاد کنید. همچنین با مشاهده طالع و علایق دیگران دوستان جدید پیدا کنید.
+  .row-fluid.friendslist.thumbnails
+    -User.with_identity(0, 12).each do |u|
+      %a.user{ :href => user_path(u.hid) }
+        %img.img-rounded{ :src => u.avatar(:medium) }
+  .row-fluid.margined
+    %a.btn.btn-large.btn-success{ :href => new_user_registration_path( :by => :sider ) }
+      %i.icon-user.icon-white.icon-2x
+      عضویت رایگان تا یک سال

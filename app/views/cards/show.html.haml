@@ -1,0 +1,17 @@
+- content_for :head do
+  %meta{ :name => "description", :content => @furtune }
+  %meta{ :name => "keywords", :content => "طالع بین ، طالع بینی ، فال ، فالگیری ، عشق، بخت، اختر خوانی، ستاره خوانی، فال با ورق، فال با کارت" }
+.row-fluid
+  .span8
+    .box
+      %h1 طالع بینی با کارت شما
+      .span12.margined
+        - @cards.each do |c|
+          %img{ :src => "/assets/cards/#{c.name}.png" }
+      %p= @furtune
+    .box.margined
+      %h3 ارسال طالع خود به دوستان
+      =render :partial => 'general/share', :locals => { :url => my_cards_url(@cardsno) }
+      %p شما می توانید دوستان خود را برای نظر دادن بر روی طالع خود به اینجا دعوت کنید و یا این صفحه را به سایت های اجتماعی خود مانند فیس بوک و تویتر و گوگل باز بفرستید.
+  .span4
+    =render :partial => '/general/talebin'

@@ -19,6 +19,8 @@ gem 'aasm'
 gem 'contacts'
 gem 'hpricot'
 gem 'uuidtools'
+gem 'capistrano'
+gem 'ruby-debug'
 
 
 # Gems used only for assets and not required
@@ -43,9 +45,3 @@ gem 'jquery-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-gem 'ruby-debug'

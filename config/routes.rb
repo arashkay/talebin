@@ -6,13 +6,28 @@ TalebinCom::Application.routes.draw do
     match '/auth/yahoo/callback', :controller => 'users/omniauth_callbacks', :action => 'yahoo'
     match '/edit_secret_profile' => 'devise/registrations#edit'
     match 'user_confirmation_url' => 'devise/confirmation#new'
+    match '/users/point/:id/:value' => 'users#point', :as => :point
+    match '/users/respond/:id/:value' => 'users#respond', :as => :respond
+    match '/users/invite/:id' => 'users#invite', :as => :invite
+    match '/users/list' => 'users#list'
+    match '/actas/:id' => 'users#actas'
   end
   
   get '/user/:hid' => 'users#show', :as => :user
   post '/users/suggest' => 'users#suggest', :as => :suggest
   get '/home' => 'users#home', :as => :home
-  resources :cards
-  resources :tarots
+  
+  get '/:page/blog/:id/:name(.:format)' => 'general#static'
+  resources :cards do
+    collection do
+      get 'my/:cards', :action => :show, :as => :my
+    end
+  end
+  resources :tarots do
+    collection do
+      get 'my/:cards', :action => :show, :as => :my
+    end
+  end
   resources :horoscopes
   resources :celebrities
 

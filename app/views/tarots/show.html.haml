@@ -1,0 +1,40 @@
+- content_for :head do
+  %meta{ :name => "description", :content => "<%= @furtune %>" }
+  %meta{ :name => "keywords", :content => "طالع بین ، طالع بینی ، فال ، فالگیری ، عشق، بخت، اختر خوانی، ستاره خوانی، فال با ورق، فال با کارت" }
+.row-fluid
+  .span8
+    .box
+      %h1 تاروت ۵ کارت عاقبت
+      .tarotspread5
+        %img.pos1{ :src => "/assets/tarots/#{@cards[0].name}#{@positivity[0]}.png" }
+        %img.pos2{ :src => "/assets/tarots/#{@cards[1].name}#{@positivity[1]}.png" }
+        %img.pos3{ :src => "/assets/tarots/#{@cards[2].name}#{@positivity[2]}.png" }
+        %img.pos4{ :src => "/assets/tarots/#{@cards[3].name}#{@positivity[3]}.png" }
+        %img.pos5{ :src => "/assets/tarots/#{@cards[4].name}#{@positivity[4]}.png" }
+      %ul
+        %li
+          %b
+            حال (یا وضعیت شخص در هنگام خواندن کارت ها) : 
+            = @furtune[0]
+        %li
+          %b
+            گذشته (تاثیرعوامل گذشته) :
+            = @furtune[1]
+        %li
+          %b
+            آینده :
+            = @furtune[2]
+        %li
+          %b 
+            دلایل نهفته در پس سوال :
+            = @furtune[3]
+        %li
+          %b
+            موقعیت (پتانسیل) های موجود در وضعیت :
+            = @furtune[4]
+    .box.margined
+      %h3 ارسال طالع خود به دوستان
+      =render :partial => 'general/share', :locals => { :url => my_tarots_url(@cardsno) }
+      %p شما می توانید دوستان خود را برای نظر دادن بر روی طالع خود به اینجا دعوت کنید و یا این صفحه را به سایت های اجتماعی خود مانند فیس بوک و تویتر و گوگل باز بفرستید.
+  .span4
+    =render :partial => '/general/talebin'
