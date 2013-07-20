@@ -22,11 +22,11 @@ namespace :deploy do
   end
 end
 
-before "deploy:symlink", "symlinks:create"
+before "deploy:create_symlink", "symlinks:create"
 namespace :symlinks do
   task :create, :roles => :app do
-    #run "cd #{release_path}/public && rm templates -rf"
-    #run "cd #{release_path}/public && ln -s #{shared_path}/templates templates"
+    run "cd #{release_path}/public && ln -s #{shared_path}/system system"
+    #run "cd #{release_path}/public && ln -s #{shared_path}/system system"
     #run "cd #{release_path}/public && ln -s #{shared_path}/files files"
     #run "cd #{release_path}/public && ln -s #{shared_path}/assets assets"
   end
