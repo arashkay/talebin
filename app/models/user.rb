@@ -1,8 +1,12 @@
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable #, :omniauthable #, :confirmable
+  
+  attr_accessible :name, :email, :password, :password_confirmation, :gender, :goal, :birthdate
+
   has_attached_file :avatar, :styles => { :medium => "100x100#", :thumb => "30x30#" }, :default_url => "/assets/noavatar-:style.jpg"
   include Amistad::FriendModel
+  acts_as_messageable
   
   self.per_page = 50
 
@@ -10,6 +14,10 @@ class User < ActiveRecord::Base
 
   def avatar_medium
     avatar(:medium)
+  end
+
+  def mailboxer_email
+    return nil
   end
 
   def self.with_identity(id, size)

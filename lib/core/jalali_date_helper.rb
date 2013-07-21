@@ -49,7 +49,7 @@ module ActionView
 				
 				year = select_tag "#{name_prefix}[year]", options_for_select( years, jdate.year ), html_options.merge!({:id => "#{id_prefix}_year"})
 				month = select_tag "#{name_prefix}[month]", options_for_select( months, jdate.month ), html_options.merge!({:id => "#{id_prefix}_month"})
-				day = select_tag "#{name_prefix}[day]", options_for_select( days, jdate.day ), html_options.merge!({:id => "#{id_prefix}_month"})
+				day = select_tag "#{name_prefix}[day]", options_for_select( days, jdate.day ), html_options.merge!({:id => "#{id_prefix}_day"})
 				year+"\n"+month+"\n"+day
 			end
 		end

@@ -1,0 +1,46 @@
+.row-fluid
+  .span4
+    = render :partial => 'shared_side', :locals => { :user => current_user }
+  .span8
+    .alert.alert-block
+      %p با دادن آدرس زیر به دوستان خود ،علاوه بر دعوت آنها ، ٣ ماه اعتبار به عضویت خود اضافه کنید.
+      %p.alert.alert-info= new_user_registration_url( :uniq => "846289l#{current_user.id}" )
+    .box
+      .actions
+        .pulled-left
+          %a.btn.btn-success{ :data => { :remote => update_user_path, :callback => 'talebin.core.profile', :form => '.fn-profile' } }
+            %i.icon-ok
+            ثبت تغییرات
+          %a.btn.btn-inverse{ :href => home_path }
+            %i.icon-remove
+            انصراف
+      .row-fluid
+        .span2.main-avatar
+          %img.fn-avatar.img-rounded{ :src => current_user.avatar(:medium) }
+          %span.change-avatar.fileinput-button.btn.btn-success
+            %span تغییر عکس
+            %input{ :type => 'file', :name => 'avatar', :data => { :url => avatar_path(current_user.id, :format => :json), :uploader => true, :callback => 'talebin.core.avatar' } }
+        .span10
+          %h4= current_user.name
+          .alert.margined
+            از اطلاعات زیر تنها نام و عکس شما از دید دیگران قابل مشاهده است. باقی اطلاعات تنها در جهت ارائه سرویس بهتر به شما استفاده می شود.
+          .form.fn-profile
+            %fieldset
+              %label نام
+              %input{ :type => :text, :name => 'user[name]', :placeholder => "نام", :value => current_user.name }
+              %label تاریخ تولد
+              = jalali_date :user, :birthdate, current_user.birthdate||Date.today, :start_year => 1300, :end_year => JalaliDate.to_jalali(Time.now).year, :class => :w100
+              %label جنسیت
+              = select_tag 'user[gender]', options_for_select([ ['پسر یا دختر؟',''], ['پسر','true'], ['دختر','false'] ], current_user.gender.to_s )
+              %label این سایت هستم چون
+              = select_tag 'user[goal]', options_for_select([ '', 'به طالع و فال اعتقاد دارم', 'طالع و فال را برای تفریح  میگیرم', 'دنبال دوست میگردم', 'دنبال همسر ایده آل ام هستم', 'برای گذراندن وقتم'  ], current_user.goal)
+              %label ٥ چیز مورد علاقه که اول به ذهنتان میرسد
+              = text_area_tag 'user[interests]', current_user.interests, :rows => 4
+              %label.checkbox
+                %input{ :type => :checkbox, :checked => :checked } تمایل دارم اطلاعات جدید را از طریق ایمیل دریافت کنم.
+              %button.btn.btn-success{ :data => { :remote => update_user_path, :callback => 'talebin.core.profile', :parent => '.fn-profile' } }
+                %i.icon-ok
+                ثبت تغییرات
+              %a.btn.btn-inverse{ :href => home_path }
+                %i.icon-remove
+                انصراف

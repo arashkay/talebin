@@ -10,8 +10,12 @@
           %i.icon-envelope
           ارسال پیغام
   .row-fluid
-    .span2
-      %img.img-rounded{ :src => user.avatar(:medium) }
+    .span2.main-avatar
+      %img.fn-avatar.img-rounded{ :src => user.avatar(:medium) }
+      - if current_user == user
+        %span.change-avatar.fileinput-button.btn.btn-success
+          %span تغییر عکس
+          %input{ :type => 'file', :name => 'avatar', :data => { :url => avatar_path(current_user.id, :format => :json), :uploader => true, :callback => 'talebin.core.avatar' } }
     .span10
       %h4
         = user.name
@@ -21,7 +25,11 @@
 .box.margined
   -if user.birthdate.blank?
     %h6 طالع این هفته
-    %p.alert طالع به علت نامعلوم بودن تاریخ تولد قابل بازخوانی نمی باشد  
+    %p.alert 
+      طالع به علت نامعلوم بودن تاریخ تولد قابل بازخوانی نمی باشد.
+      -if current_user==user
+        برای تصحیح اینجا 
+        %a.btn.btn-info{ :href => profile_path } کلیک کن
   -elsif user.horoscope.blank?
     %h6 طالع این هفته
     %p.alert طالع این هفته نامعلوم می باشد

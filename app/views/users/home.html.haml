@@ -24,11 +24,16 @@
     = render :partial => 'shared_side', :locals => { :user => current_user }
   .span8
     .alert.alert-block
-      %p با دادن آدرس زیر به دوستان خود ،علاوه بر دعوت آنها ، ٣ ماه اعتبار به عضویت خود اضافه کنید.
+      %p با دادن آدرس زیر به دوستان خود ،علاوه بر دعوت آنها ، ٣ ماه اعتبار رایگان به عضویت خود اضافه کنید.
       %p.alert.alert-info= new_user_registration_url( :uniq => "846289l#{current_user.id}" )
     = render :partial => 'shared', :locals => { :user => current_user }
     .box.margined.todos
       %h5 کارهای عقب افتاده
+      - if current_user.name.blank? || current_user.birthdate.blank?
+        .row.alert.alert-info.fn-row
+          .message
+            شما هنوز اطلاعات خود را تکمیل نکردید. برای تکمیل اینجا 
+            %a.btn.btn-info{ :href => profile_path } کلیک کن
       .template
         .fn-reject.row.alert
           .message

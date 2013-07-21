@@ -12,7 +12,19 @@ talebin.core = {
       var $t = $(this);
       if($t.data('busy')) return;
       $('i', $t).animate( { opacity: 0.1 } );
-      var data = $.extend({}, talebin.core.security);
+      var data = {};
+      if($t.is('[data-method]')) data._method = $t.data('method');
+      if($t.is('[data-form]')){
+        $('input, select, textarea', $($t.data('form'))).each(function(){
+          data[$(this).attr('name')] = $(this).val();
+        });
+      }
+      if($t.is('[data-parent]')){
+        $('input, select, textarea', $t.parents($t.data('parent')+':first')).each(function(){
+          data[$(this).attr('name')] = $(this).val();
+        });
+      }
+      $.extend(data, talebin.core.security);
       var target = $($t.is('[data-target]')? $t.data('target') : $t);
       $t.data('busy', true);
       talebin.core.loader.show();
@@ -23,6 +35,19 @@ talebin.core = {
         eval($t.data('callback')).call( target, d);
       });
     };
+    $('[data-uploader]').fileupload({
+      dataType: 'json',
+      formData: talebin.core.security,
+      send: function(){
+        talebin.core.loader.show();
+      },
+      done: function (e, data) {
+        talebin.core.loader.hide();
+        var $this = $(data.fileInput);
+        eval($this.data('callback')).call($this, data.result);
+      }
+    });
+
     $('[data-remote]').bind('click', remote );
     $('[data-updatable=remote]').on('click', '[data-remote]', remote );
   },
@@ -55,6 +80,15 @@ talebin.core = {
   },
   invite: function(){
     $(this).remove();
+  },
+  avatar: function(d){
+    $('.fn-avatar').attr('src',d.avatar);
+  },
+  logout: function(){
+    location.href = '/';
+  },
+  profile: function(){
+    location.href = '/home';
   }
 }
 talebin.core.init();

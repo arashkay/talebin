@@ -1,11 +1,32 @@
 class UsersController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def home
     @suggestions = current_user.matches(9)
   end
 
   def show
     @user = User.find_by_hid params[:hid]
+  end
+
+  def update
+    @user = current_user
+    @user.name = params[:user][:name] || @user.name
+    @user.goal = params[:user][:goal] || @user.goal
+    @user.interests = params[:user][:interests] || @user.interests
+    @user.subscribed = params[:user][:subscribed] || @user.subscribed
+    @user.gender = case params[:user][:gender]
+                   when 'true'
+                     true
+                   when 'false'
+                     false
+                   else
+                     @user.gender
+                   end
+    @user.birthdate = JalaliDate.to_gregorian params[:user][:birthdate] unless params[:user][:birthdate].blank?
+    @user.save
+    render :json => true
   end
 
   def suggest
@@ -40,6 +61,12 @@ class UsersController < ApplicationController
   def actas
     sign_in User.find params[:id]
     redirect_to home_path
+  end
+
+  def avatar
+    current_user.avatar = params[:avatar]
+    current_user.save
+    render :json => { :avatar => current_user.avatar(:medium) }
   end
 
 end

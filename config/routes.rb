@@ -1,21 +1,24 @@
 TalebinCom::Application.routes.draw do
   
-  root :to => 'general#index'
+  get 'about' => 'general#about'
  
-  devise_for :users, :path => '/', :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :sign_up => 'signup' } , :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" } do
+  devise_for :users, :path => '/', :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :sign_up => 'signup' } , :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions", :registrations => "users/registrations" } do
     match '/auth/yahoo/callback', :controller => 'users/omniauth_callbacks', :action => 'yahoo'
     match '/edit_secret_profile' => 'devise/registrations#edit'
     match 'user_confirmation_url' => 'devise/confirmation#new'
     match '/users/point/:id/:value' => 'users#point', :as => :point
     match '/users/respond/:id/:value' => 'users#respond', :as => :respond
     match '/users/invite/:id' => 'users#invite', :as => :invite
-    match '/users/list' => 'users#list'
-    match '/actas/:id' => 'users#actas'
+    get   '/users/list' => 'users#list'
+    get   '/actas/:id' => 'users#actas'
+    post  '/users/update' => 'users#update', :as => :update_user
+    match '/users/:id/avatar' => 'users#avatar', :as => :avatar
   end
   
   get '/user/:hid' => 'users#show', :as => :user
   post '/users/suggest' => 'users#suggest', :as => :suggest
   get '/home' => 'users#home', :as => :home
+  match '/profile' => 'users#profile', :as => :profile
   
   get '/:page/blog/:id/:name(.:format)' => 'general#static'
   resources :cards do
@@ -30,6 +33,8 @@ TalebinCom::Application.routes.draw do
   end
   resources :horoscopes
   resources :celebrities
+  
+  root :to => 'general#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

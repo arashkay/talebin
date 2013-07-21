@@ -20,6 +20,7 @@ gem 'hpricot'
 gem 'uuidtools'
 gem 'capistrano'
 gem 'ruby-debug'
+gem 'mailboxer'
 
 
 # Gems used only for assets and not required

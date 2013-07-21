@@ -5,13 +5,13 @@
   = link_to "ثبت نام", new_registration_path(resource_name)
   %br
 - if devise_mapping.recoverable? && controller_name != 'passwords'
-  = link_to "رمز کاربری را فراموش کرده اید؟", new_password_path(resource_name)
+  = link_to "رمز کاربری را فراموش کردی؟", new_password_path(resource_name)
   %br
 - if devise_mapping.confirmable? && controller_name != 'confirmations'
-  = link_to "ایمیل تایید دریافت نکردید؟", new_confirmation_path(resource_name)
+  = link_to "ایمیل تایید دریافت نکردی؟", new_confirmation_path(resource_name)
   %br
 - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
-  = link_to "ایمیل فعال سازی دریافت نکردید؟", new_unlock_path(resource_name)
+  = link_to "ایمیل فعال سازی دریافت نکردی؟", new_unlock_path(resource_name)
   %br
 - if devise_mapping.omniauthable?
   - resource_class.omniauth_providers.each do |provider|

@@ -1,0 +1,59 @@
+.row-fluid.margined
+  .span12
+    .box
+      .row-fluid
+        .span8
+          %h1 طالع بین 
+          -unless @inviter.blank?
+            %p.alert.alert-info 
+              دوستت #{@inviter.name}، تو رو به طالع بین دعوت کرد.
+              %span.btn-group
+                %a.btn.btn-danger{ :href => new_user_session_path } نمی شناسم !
+                %a.btn.btn-success{ :href => new_user_session_path(:uniq => params[:uniq]) } می شناسم و  عضو  طالع بینم ! 
+            %h5 دوستان #{@inviter.name}
+            .row-fluid.quicklist.fn-suggestions
+              -@inviter.friends.limit(12).each do |user|
+                %a.user.fn-suggestion
+                  %img.img-rounded{ :src => user.avatar(:medium) }
+          -else
+            .row-fluid
+              .span4.centred
+                %img{ :src => '/assets/phones.jpg' }
+              .span8
+                %h3 همراه شما در حرکت
+                %p طالع بین ورژن موبایل راه اندازی شد! شما به راحتی میتونید از طریق موبایل خود سایت طالع بین رو باز کنید و به راحتی قسمت های مختلف سایت را نگاه کنید. هدف ما سرگرم کردن شما بر اساس نیاز شماست!
+                %h3 چی جدیده؟
+                %p 
+                  شما هم اکنون در طالع بین ٢ هستید! طالع بین ٢ مجهز به جاروبرقی ، قیچی ، کفتر ، بیشتولک ، شیپور و ... است. دوست داری درباره اینا بیشتر بدونی؟ 
+                  %a{ :href => "#{about_path}/#tech" } اینجا رو بخون
+                  \. چرا ما به زبان محاوره مینویسیم 
+                  %a{ :href => "#{about_path}/#lang" } اینجا رو بخون
+                  ؛). چرا چشمک میذاریم تو سایت 
+                  %a{ :href => "#{about_path}/#lang" } اینجا رو بخون
+          %h4 دیگر کاربران طالع بین
+          .row-fluid.quicklist
+            -@random_users.each do |user|
+              %a.user
+                %img.img-rounded{ :src => user.avatar(:medium) }
+        .span4
+          %h4 
+            کاربر جدیدی؟
+            %a.btn.btn-info{ :href => new_user_session_path } نه، کاربر بودم!
+          =form_for resource, :as => resource_name, :url => registration_path(resource_name), :class => 'form-horizontal' do |f|
+            -unless resource.errors.blank?
+              .alert.alert-error= devise_error_messages!
+            %input{ :type => :hidden, :name => :uniq, :value => params[:uniq] }
+            .control-group
+              =f.label :email, 'نام کاربری ', :class => 'control-label'
+              .controls
+                =f.email_field :email, :autofocus => true
+            .control-group
+              =f.label :password, 'رمز کاربری'
+              .controls
+                =f.password_field :password
+            .control-group
+              =f.label :password_confirmation, 'تکرار رمز کاربری'
+              .controls
+                =f.password_field :password_confirmation
+              = f.submit 'عضویت رایگان', :class => 'btn btn-success'
+          = render "devise/shared/links"

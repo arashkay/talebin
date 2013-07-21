@@ -40,7 +40,7 @@
                 %a.dropdown-toggle{ :data => { :toggle => 'dropdown' } }
                   %i.icon-envelope
                   پیغام ها
-                  %span.img-circle.new 15
+                  %span.img-circle.new 1
                 %ul.dropdown-menu
                   %li.nav-header
                     %a
@@ -48,12 +48,8 @@
                       پیغام های دریافتی
                   %li
                     %a
-                      %img.img-rounded{ :src => 'arash.jpg' }
-                      ژامک گفت : چطوری سوسک جون ...
-                  %li
-                    %a
-                      %img.img-rounded{ :src => 'arash.jpg' }
-                      ژامک گفت : چطوری سوسک جون ...
+                      %img.img-rounded{ :src => '/assets/noavatar-thumb.jpg' }
+                      طالع بین : این بخش هنوز راه اندازی نشده 
                   %li.divider
                   %li
                     %a
@@ -74,11 +70,13 @@
                       %i.icon-eye-open
                       شما از دید دیگران
                   %li
-                    %a
+                    %a{ :href => profile_path }
                       %i.icon-cogs
                       تغییر اطلاعات
-              %li.exit
-                =link_to '<i class="icon-off"></i>خروج'.html_safe, destroy_user_session_path, :method => :delete
+              %li.exit{ :data => { :remote => destroy_user_session_path, :method => :delete, :callback => 'talebin.core.logout' } }
+                %a
+                  %i.icon-off
+                  خروج
             -else
               %li.login
                 %a{ :href => new_user_session_path }
@@ -95,7 +93,7 @@
                       پیغام های دریافتی
                   %li
                     %a{ :href => new_user_session_path }
-                      %img.img-rounded{ :src => 'arash.jpg' }
+                      %img.img-rounded{ :src => '/assets/noavatar-thumb.jpg' }
                       طالع بین : دوستانتان منتظر شما ..
                   %li.divider
                   %li
