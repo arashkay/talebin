@@ -10,4 +10,4 @@
     %textarea.messagebox{ :name => :message }
   .modal-footer
     %a.btn.btn-primary{ :data => { :remote => messages_path(:user => user.id), :parent => '#send-message', :callback => 'talebin.core.message' } } ارسال
-    %a.btn انصراف
+    %a.btn{ :data => { :dismiss => 'modal' } } انصراف

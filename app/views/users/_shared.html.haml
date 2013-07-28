@@ -36,3 +36,4 @@
   -else
     %h5 طالع این هفته #{Sign.fa user.horoscope.sign}
     %p= user.horoscope.description
+    =render :partial => 'general/share', :locals => { :url => weekly_url(user.horoscope.uid)  }

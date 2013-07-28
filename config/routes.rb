@@ -15,6 +15,7 @@ TalebinCom::Application.routes.draw do
     match '/users/:id/avatar' => 'users#avatar', :as => :avatar
   end
   
+  get '/weekly/:uid' => "horoscopes#show", :as => :weekly
   get '/user/:hid' => 'users#show', :as => :user
   post '/users/suggest' => 'users#suggest', :as => :suggest
   get '/home' => 'users#home', :as => :home

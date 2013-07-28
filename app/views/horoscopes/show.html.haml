@@ -1,0 +1,15 @@
+- content_for :head do
+  %meta{ :name => "description", :content => "طالع این هفته (#{Sign.fa @horoscope.sign}): #{truncate @horoscope.description , :length => 200}" }
+  %meta{ :name => "keywords", :content => "طالع بین ، طالع بینی ، فال ، فالگیری ، عشق، بخت، اختر خوانی، ستاره خوانی، فال با ورق، فال با کارت" }
+.row-fluid
+  .span8
+    .box
+      %h1 طالع این هفته (نشانه #{Sign.fa @horoscope.sign} )
+      .span12.margined
+      %p= @horoscope.description
+    .box.margined
+      %h3 ارسال طالع خود به دوستان
+      =render :partial => 'general/share', :locals => { :url => weekly_url(@horoscope.uid) }
+      %p شما می توانید دوستان خود را برای نظر دادن بر روی طالع خود به اینجا دعوت کنید و یا این صفحه را به سایت های اجتماعی خود مانند فیس بوک و تویتر و گوگل باز بفرستید.
+  .span4
+    =render :partial => '/general/talebin'
