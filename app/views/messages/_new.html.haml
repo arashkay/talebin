@@ -1,0 +1,13 @@
+#send-message.modal.hide.fade
+  .modal-header
+    %button.close{ :type => "button", :data => { :dismiss => "modal" } , :aria => { :hidden=> "true"} }
+      %i.icon-minus-sign-alt
+    %h3 
+      ارسال پیغام به 
+      %img.img-rounded{ :src => user.avatar(:thumb) } 
+      = user.name
+  .modal-body
+    %textarea.messagebox{ :name => :message }
+  .modal-footer
+    %a.btn.btn-primary{ :data => { :remote => messages_path(:user => user.id), :parent => '#send-message', :callback => 'talebin.core.message' } } ارسال
+    %a.btn انصراف

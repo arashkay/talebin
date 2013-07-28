@@ -2,11 +2,11 @@
   - unless current_user == user
     .actions
       .pulled-left
-        - unless current_user.invited? user
+        - unless current_user.connected_with? user
           %a.btn.btn-success{ :data => { :remote => invite_path(user.id), :callback => 'talebin.core.invite' } }
             %i.icon-plus
             دعوت به دوستی
-        %a.btn.btn-info
+        %a.btn.btn-info{ :href => "#send-message", :role => "button", :data => { :toggle => "modal" } }
           %i.icon-envelope
           ارسال پیغام
   .row-fluid

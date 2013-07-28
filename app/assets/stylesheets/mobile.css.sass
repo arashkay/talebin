@@ -1,0 +1,17 @@
+html#page .only-mobile
+  display: none
+@media screen and (min-device-width: 320px)  and (max-device-width: 480px)
+  html#page .none-mobile
+    display: none
+  html#page .only-mobile
+    display: inline
+  html#page .only-mobile.block
+    display: block
+  .mobile-menu > a
+    margin: 0 !important
+    padding: 10px 0 0 !important
+  .mobile-menu
+    background: none !important
+    .dropdown-menu
+      &:after
+        border-bottom-color: #438EB9 !important

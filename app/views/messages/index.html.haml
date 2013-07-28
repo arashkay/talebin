@@ -1,0 +1,38 @@
+.row-fluid
+  .span8
+    .box
+      %h1 پیام های دریافتی
+      .row-fluid
+        .span4
+          %ul.unstyled.messages.fn-message-list
+            -current_user.inbox.limit(25).each do |message|
+              %li{ :class => (message.read_at.blank? ? 'alert-info' : '') }
+                %a.fn-read-message{ :href=> "#{messages_path}##{message.sender_id}", :data => { :id => message.sender_id, :remote => message_path(message.sender_id), :method => 'GET', :callback => 'talebin.core.read' } }
+                  %img{ :src => message.sender.avatar(:thumb) }
+                  = message.sender.name
+                  %span.date
+                    = distance_of_time_in_words_to_now message.created_at
+                    پیش
+                  %span.message= truncate message.body, :size => 25
+        .span8.chatbox
+          %ul.unstyled.fn-conversation
+            %li.fn-conversation-intro
+              .alert.alert-info برای مشاهده روی پیام های جدید کلیک کنید.
+            %li.conversation.start.fn-send-message{ :loop => :true }
+              %div
+                %img{ :src => current_user.avatar(:thumb) }
+                %span.name= current_user.name
+              .message
+                %textarea.new-message{ :name => :message, :placeholder => 'ارسال پاسخ ...' }
+              .container-fluid
+                .pull-left
+                  %a.btn.btn-success.fn-reply{ :data => { :remote => messages_path(:user => 'id'), :parent => '.fn-send-message', :callback => 'talebin.core.replied' } } ارسال
+            %li.template.conversation.fn-chat-message{ :loop => :true }
+              %div{ :loop => :sender }
+                %img{ :src => '%#avatar_thumb%' }
+                %span.name %#name%
+              .message %#body%
+            %li.toolong.fn-toolong
+              %span در حال حاضر تنها قادر به مشاهده ١٥ پیام آخر هستید
+  .span4
+    =render :partial => 'general/talebin'

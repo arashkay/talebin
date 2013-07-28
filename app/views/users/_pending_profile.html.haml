@@ -1,0 +1,5 @@
+-if current_user.name.blank? || current_user.birthdate.blank?
+  .row.alert.alert-info.fn-row
+    .message
+      شما هنوز اطلاعات خود را تکمیل نکردید. برای تکمیل اینجا 
+      %a.btn.btn-info{ :href => profile_path } کلیک کن

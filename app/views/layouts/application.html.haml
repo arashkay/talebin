@@ -1,5 +1,5 @@
 !!! 5
-%html
+%html#page
   %head
     %title Talebin.com طالع بین
     =yield :head
@@ -25,40 +25,47 @@
     .menu.navbar.navbar-fixed-top
       .navbar-inner
         .container-fluid
-          %ul.nav.nav-pills
-            %li{ :class => 'active' }
-              %a{ :href => root_path }صفحه اصلی
-            %li
-              %a{ :href => horoscopes_path }طالع ستارگان
-            %li
-              %a{ :href => cards_path }طالع کارت
-            %li
-              %a{ :href => tarots_path }کارت های تاروت
+          %ul.nav.nav-pills.none-mobile
+            = render :partial => 'layouts/menu'
+          %ul.nav.only-mobile
+            %li.mobile-menu.dropdown
+              %a.dropdown-toggle{ :data => { :toggle => 'dropdown' } }
+                %i.icon-th-list.icon-2x.icon-flip-horizontal
+              %ul.dropdown-menu
+                = render :partial => 'layouts/menu'
           %ul.nav.pull-left
             -if user_signed_in?
+              -@unreads = current_user.inbox.unread.all
               %li.dropdown.message
                 %a.dropdown-toggle{ :data => { :toggle => 'dropdown' } }
                   %i.icon-envelope
-                  پیغام ها
-                  %span.img-circle.new 1
+                  %span.none-mobile پیام ها
+                  %span.img-circle.new= @unreads.count
                 %ul.dropdown-menu
                   %li.nav-header
                     %a
                       %i.icon-suitcase
-                      پیغام های دریافتی
-                  %li
-                    %a
-                      %img.img-rounded{ :src => '/assets/noavatar-thumb.jpg' }
-                      طالع بین : این بخش هنوز راه اندازی نشده 
+                      پیام های دریافتی
+                  -@unreads.each do |message|
+                    %li
+                      %a{ :href => "#{messages_path}##{message.sender_id}" }
+                        %img.img-rounded{ :src => message.sender.avatar(:thumb) }
+                        =message.sender.name
+                        \:
+                        = truncate message.body, :length => 20
                   %li.divider
+                  %li
+                    %a{ :href => messages_path }
+                      %i.icon-comments
+                      مشاهده همه پیام ها
                   %li
                     %a
                       %i.icon-pencil
-                      ارسال پیغام 
+                      ارسال پیام
               %li.dropdown.user
                 %a.dropdown-toggle{ :data => { :toggle => 'dropdown' } }
                   %i.icon-user
-                  =current_user.name
+                  %span.none-mobile= current_user.name
                 %ul.dropdown-menu
                   %li
                     %a{ :href => home_path }
@@ -76,7 +83,7 @@
               %li.exit{ :data => { :remote => destroy_user_session_path, :method => :delete, :callback => 'talebin.core.logout' } }
                 %a
                   %i.icon-off
-                  خروج
+                  %span.none-mobile خروج
             -else
               %li.login
                 %a{ :href => new_user_session_path }
@@ -84,22 +91,17 @@
               %li.dropdown.message
                 %a.dropdown-toggle{ :data => { :toggle => 'dropdown' } }
                   %i.icon-envelope
-                  پیغام ها
+                  %span.none-mobile پیام ها
                   %span.img-circle.new 1
                 %ul.dropdown-menu
                   %li.nav-header
                     %a
                       %i.icon-suitcase
-                      پیغام های دریافتی
+                      پیام های دریافتی
                   %li
                     %a{ :href => new_user_session_path }
                       %img.img-rounded{ :src => '/assets/noavatar-thumb.jpg' }
                       طالع بین : دوستانتان منتظر شما ..
-                  %li.divider
-                  %li
-                    %a
-                      %i.icon-pencil
-                      ارسال پیغام 
     .container-fluid
       .row-fluid
         .header.span12

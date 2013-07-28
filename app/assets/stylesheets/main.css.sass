@@ -1,5 +1,6 @@
 body
   background: url(/assets/white_wall.png)
+  font-family: Tahoma,"Helvetica Neue",Helvetica,Arial,sans-serif
 h1
   font-size: 2em
 h2
@@ -10,7 +11,11 @@ h4
   font-size: 1.1em
 h5
   font-size: 1em
-
+table.vtable
+  td
+    vertical-align: middle
+.hidden
+  display: none
 .menu
   margin-bottom: 0
   .navbar-inner
@@ -56,7 +61,7 @@ h5
             border-top: #15593E 1px solid
             padding: 5px 0
           li.divider
-            background: #185B40
+            background: #5EB290
             border-bottom-color: #15593E
           li:hover
             background: #82AF6F
@@ -67,7 +72,7 @@ h5
         .dropdown-menu
           background: #444
           li.divider
-            background: #333
+            background: #888
             border-bottom-color: #222
           li:hover
             background: #555
@@ -160,23 +165,6 @@ h5
   a
     i
       vertical-align: middle
-
-.fileinput-button
-  overflow: hidden
-  position: relative
-.fileinput-button input
-  cursor: pointer
-  direction: ltr
-  font-size: 23px
-  margin: 0
-  opacity: 0
-  position: absolute
-  right: 0
-  top: 0
-  transform: translate(-300px, 0px) scale(4)
-
-select[name="user[birthdate][day]"], select[name="user[birthdate][month]"], select[name="user[birthdate][year]"]
-  width: 100px
 
 .main-avatar
   text-align: center

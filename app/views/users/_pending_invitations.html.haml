@@ -1,0 +1,25 @@
+.template
+  .fn-reject.row.alert
+    .message
+      %a
+        %img
+        %span
+      از دوستی با شما محروم شد.
+  .fn-accept.row.alert.alert-success
+    .message
+      %a
+        %img
+      شما و 
+      %a
+        %span
+      باهم دوست شدید.
+-current_user.pending_invited_by.each do |user|
+  .row.alert.alert-info.fn-row
+    .message
+      %a{ :href => user_path(user.hid) }
+        %img{ :src => user.avatar(:thumb) }
+        %span= user.name 
+      از شما درخواست دوستی کرد
+    .btn-group
+      .btn.btn-success{ :data => { :remote => respond_path(user.id,1), :callback => 'talebin.core.respond' } } قبول دوستی
+      .btn.btn-inverse{ :data => { :remote => respond_path(user.id,-1), :callback => 'talebin.core.respond' } } رد دوستی ، نمی شناسم

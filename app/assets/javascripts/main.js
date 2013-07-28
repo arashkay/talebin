@@ -50,6 +50,7 @@ talebin.core = {
 
     $('[data-remote]').bind('click', remote );
     $('[data-updatable=remote]').on('click', '[data-remote]', remote );
+    talebin.core.autoloadMessages();
   },
   loader: {
     show: function(){
@@ -89,6 +90,33 @@ talebin.core = {
   },
   profile: function(){
     location.href = '/home';
+  },
+  message: function(){
+    $('#send-message').modal('hide').find('textarea').val('');
+  },
+  autoloadMessages: function(){
+    var id = location.hash.slice(1);
+    if(id=='') return;
+    $('[href="/messages#'+id+'"]').click();
+  },
+  read: function(data){
+    var item = $(this);
+    $('.fn-message-list li').removeClass('selected');
+    var row = item.parent();
+    row.addClass('selected');
+    $('.fn-chat-message:visible').remove();
+    $('.fn-chat-message:hidden').template(data);
+    $('.fn-send-message').show();
+    $('.fn-conversation-intro').remove();
+    if(data.length>=15)
+      $('.fn-toolong').show();
+    else
+      $('.fn-toolong').hide();
+    $('.fn-reply').data('remote', '/messages?user='+item.data('id'));
+  },
+  replied: function(data){
+    $('.fn-send-message textarea').val('');
+    $('.fn-chat-message:hidden').template(data);
   }
 }
 talebin.core.init();

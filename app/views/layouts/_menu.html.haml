@@ -1,0 +1,8 @@
+%li{ :class => (action_name=='index' && controller_name=='general' ? 'active' : '') }
+  %a{ :href => root_path }صفحه اصلی
+%li{ :class => (controller_name=='horoscopes' ? 'active' : '') }
+  %a{ :href => horoscopes_path }طالع ستارگان
+%li{ :class => (controller_name=='cards' ? 'active' : '') }
+  %a{ :href => cards_path }طالع کارت
+%li{ :class => (controller_name=='tarots' ? 'active' : '') }
+  %a{ :href => tarots_path }کارت های تاروت

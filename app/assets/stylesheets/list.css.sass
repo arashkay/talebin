@@ -79,3 +79,75 @@
     &:hover
       img
         border: #14A2D4 1px solid
+
+ul.messages
+  a
+    display: block
+    outline: none
+    text-decoration: none
+    *:hover
+      text-decoration: none
+  li
+    margin: 1px 0
+    position: relative
+    padding: 5px
+    .date
+      position: absolute
+      left: 5px
+      top: 0px
+      color: #999
+      font-size: 0.8em
+    .message
+      display: block
+      color: #555
+      padding-right: 35px
+    &.selected
+      background: #eee
+      box-shadow: 0 0 1px #444
+      &:before
+        border-right: 10px solid rgba(0, 0, 0, 0.2)
+        border-top: 10px solid transparent
+        border-bottom: 10px solid transparent
+        content: ""
+        display: inline-block
+        position: absolute
+        left: -11px
+        top: 20px
+      &:after
+        border-right: 10px solid #eee
+        border-top: 10px solid transparent
+        border-bottom: 10px solid transparent
+        content: ""
+        display: inline-block
+        position: absolute
+        left: -10px
+        top: 20px
+
+.chatbox
+  border-right: 1px solid #ccc
+  padding-right: 10px
+  .conversation
+    padding: 8px 0 5px
+    border-bottom: #eee 1px dashed
+    .name
+      padding-right: 5px
+    .message
+      padding-right: 35px
+    .new-message
+      width: 100%
+      padding: 0
+      display: block
+      border: none
+      border-right: 1px solid #eee
+      box-shadow: none
+      border-radius: 0
+    &.start
+      display: none
+  .toolong
+    display: none
+    margin-top: 10px
+    background: #ccc
+    color: #fff
+    text-align: center
+    padding: 5px
+    border-radius: 5px

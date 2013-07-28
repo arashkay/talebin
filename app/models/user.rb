@@ -6,11 +6,20 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "100x100#", :thumb => "30x30#" }, :default_url => "/assets/noavatar-:style.jpg"
   include Amistad::FriendModel
-  acts_as_messageable
-  
+  has_many :outbox, :class_name => 'Message', :foreign_key => :sender_id, :order => 'created_at DESC'
+  has_many :inbox, :class_name => 'Message', :foreign_key => :recipient_id, :order => 'created_at DESC', :group => 'sender_id', :include => :sender do
+    def unread(limit=5)
+      where( :read_at => nil ).limit(limit)
+    end
+  end
+
   self.per_page = 50
 
   serialize :today
+
+  def avatar_thumb
+    avatar(:thumb)
+  end
 
   def avatar_medium
     avatar(:medium)
@@ -44,6 +53,10 @@ class User < ActiveRecord::Base
   def horoscope
     @horoscope = Horoscope.first :conditions => { :date => (Time.now.beginning_of_week-2.days).strftime("%y-%m-%d"), :sign => JalaliDate.to_jalali(birthdate).month } unless birthdate.blank? || !@horoscope.blank?
     @horoscope
+  end
+
+  def conversation_with(user_id)
+    Message.conversation( id, user_id)
   end
 
 end

@@ -33,6 +33,7 @@ TalebinCom::Application.routes.draw do
   end
   resources :horoscopes
   resources :celebrities
+  resources :messages
   
   root :to => 'general#index'
 

@@ -1,0 +1,7 @@
+.box.margined.todos
+  %h5 کارهای عقب افتاده
+  -if current_user.pending_invited_by.blank?
+    .alert.alert-success آفرین! کار عقب مونده ای نداری.
+  -else
+    =render :partial => 'pending_profile'
+    =render :partial => 'pending_invitations'
