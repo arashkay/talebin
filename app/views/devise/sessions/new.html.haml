@@ -35,13 +35,13 @@
               .alert.alert-error= devise_error_messages!
             %input{ :type => :hidden, :name => :uniq, :value => params[:uniq] }
             .control-group
-              =f.label :email, 'نام کاربری ', :class => 'control-label'
+              =f.label :email, 'نام کاربری  (ایمیل)', :class => 'control-label'
               .controls
-                =f.email_field :email, :autofocus => true
+                =f.email_field :email, :autofocus => true, :style => 'direction: ltr; text-align: left'
             .control-group
               =f.label :password, 'رمز کاربری'
               .controls
-                =f.password_field :password
+                =f.password_field :password, :style => 'direction: ltr; text-align: left'
             .control-group
               .control
                 %label.checkbox

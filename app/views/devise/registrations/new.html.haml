@@ -14,15 +14,15 @@
             .control-group
               =f.label :email, 'ایمیل (ایمیل معتبر وارد کنید)', :class => 'control-label'
               .controls
-                =f.email_field :email, :autofocus => true #, :placeholder => 'مثال amir.abasi@gmail.com'
+                =f.email_field :email, :autofocus => true, :style => 'direction: ltr; text-align: left' #, :placeholder => 'مثال amir.abasi@gmail.com'
             .control-group
               =f.label :password, 'رمز کاربری'
               .controls
-                =f.password_field :password
+                =f.password_field :password, :style => 'direction: ltr; text-align: left'
             .control-group
               =f.label :password_confirmation, 'تکرار رمز کاربری'
               .controls
-                =f.password_field :password_confirmation
+                =f.password_field :password_confirmation, :style => 'direction: ltr; text-align: left'
               = f.submit 'عضویت رایگان', :class => 'btn btn-success'
           = render "devise/shared/links"
         .span8
