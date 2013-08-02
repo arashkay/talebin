@@ -1,0 +1,78 @@
+.row-fluid
+  .span8
+    .box
+      %h1 تست های شخصیتی 
+      %p تست های شخصیتی (شامل مجموعه ای از تست مانند تست رنگ ها ، تست تصویر، تست لباس و ظاهر ، تست تکنولوژی و ...) می باشد. این تست ها به ما و شما کمک خواهند کرد که شما را بهتر بشناسیم. همچنین افراد مناسب با شما را در سیستم به شما معرفی کنیم. دسته ای از این تست ها جنبه روانشناسی و دسته دیگر جنبه سرگرمی دارند.
+      %p این بخش در ابتدا برای کاربران عضو فعال خواهد شد.
+      .row-fluid.margined
+        %a.btn.btn-success{ :href => new_user_registration_path( :by => :sider ) }
+          %i.icon-user.icon-white
+          عضویت رایگان
+      %p ما بر آن هستیم که مجموعه تست های خود را هر ماه افزایش دهیم تا به شناخت عمیقتری از شما دست یابیم. سوالات مطرح شده در هر تست ١٠٠%  جنبه روانشناسی دارد و ما هرگز سوالات خصوصی در تست های خود مطرح نمیکنیم.
+      %h2 نمونه تست رنگ ها
+      %table.table.table-striped
+        %tr
+          %th کدام رنگ با رنگ مورد علاقه شما بیشتر هم خوانی دارد؟
+        %tr
+          %th 
+            .row-fluid
+              .span2 
+                %input{ :type => :radio, :name => :color }
+                سفید
+              .span2 
+                %input{ :type => :radio, :name => :color }
+                سیاه
+              .span2 
+                %input{ :type => :radio, :name => :color }
+                قرمز
+              .span2 
+                %input{ :type => :radio, :name => :color }
+                سبز 
+              .span2 
+                %input{ :type => :radio, :name => :color }
+                آبی
+      %h2 نمونه تست تکنولوژی
+      %table.table.table-striped
+        %tr
+          %th از نظر شما گوشی همراه چیست؟
+        %tr
+          %th 
+            .row-fluid
+              .span2 
+                %input{ :type => :radio, :name => :color }
+                وسیله ارتباط
+              .span2 
+                %input{ :type => :radio, :name => :color }
+                وسیله بازی
+              .span2 
+                %input{ :type => :radio, :name => :color }
+                ابزار کمکی
+              .span2 
+                %input{ :type => :radio, :name => :color }
+                وسیله کار
+      %h2 نمونه تست ظاهر
+      %table.table.table-striped
+        %tr
+          %th چندبار حمام در هفته لازم است؟
+        %tr
+          %th 
+            .row-fluid
+              .span4 
+                %input{ :type => :radio, :name => :color }
+                روزی حد اقل یک بار 
+              .span4 
+                %input{ :type => :radio, :name => :color }
+                روزی یکبار بسه
+              .span2 
+                %input{ :type => :radio, :name => :color }
+                ٢-٣ بار 
+              .span2 
+                %input{ :type => :radio, :name => :color }
+                ١ بار 
+      %p اگر تمایل دارید جزو اولین افرادی باشید که وارد تست می شوید ثبت نام کنید.
+      .row-fluid.margined
+        %a.btn.btn-success{ :href => new_user_registration_path( :by => :sider ) }
+          %i.icon-user.icon-white
+          عضویت رایگان
+  .span4
+    =render :partial => 'talebin'

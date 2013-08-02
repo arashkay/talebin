@@ -1,0 +1,37 @@
+.row-fluid.margined
+  .span12
+    .box
+      .row-fluid
+        .span8
+          %h1 طالع بین 
+          .row-fluid
+            .span4.centred
+              %img{ :src => '/assets/phones.jpg' }
+            .span8
+              %h3 همراه شما در حرکت
+              %p طالع بین ورژن موبایل راه اندازی شد! شما به راحتی میتونید از طریق موبایل خود سایت طالع بین رو باز کنید و به راحتی قسمت های مختلف سایت را نگاه کنید. هدف ما سرگرم کردن شما بر اساس نیاز شماست!
+              %h3 چی جدیده؟
+              %p 
+                شما هم اکنون در طالع بین ٢ هستید! طالع بین ٢ مجهز به جاروبرقی ، قیچی ، کفتر ، بیشتولک ، شیپور و ... است. دوست داری درباره اینا بیشتر بدونی؟ 
+                %a{ :href => "#{about_path}/#tech" } اینجا رو بخون
+                \. چرا ما به زبان محاوره مینویسیم 
+                %a{ :href => "#{about_path}/#lang" } اینجا رو بخون
+                ؛). چرا چشمک میذاریم تو سایت 
+                %a{ :href => "#{about_path}/#lang" } اینجا رو بخون
+                \.
+        .span4
+          %h4 تغییر رمز کاربری
+          =form_for resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }, :class => 'form-horizontal' do |f|
+            -unless resource.errors.blank?
+              .alert.alert-error= devise_error_messages!
+            = f.hidden_field :reset_password_token
+            .control-group
+              =f.label :password, 'رمز کاربری'
+              .controls
+                =f.password_field :password
+            .control-group
+              =f.label :password_confirmation, 'تکرار رمز کاربری'
+              .controls
+                =f.password_field :password_confirmation
+            = f.submit 'ثبت رمز جدید', :class => 'btn btn-success'
+          = render "devise/shared/links"
