@@ -33,8 +33,8 @@ class User < ActiveRecord::Base
     where( ['name IS NOT NULL and avatar_file_name IS NOT NULL and id <> ?', id] ).order( 'rand()' ).limit(size)
   end
 
-  def matches(size=8)
-    User.with_identity id, size
+  def matches(size=15)
+    User.where( ["last_sign_in_at > ?", Date.today-1.months] ).with_identity id, size
   end
 
   def today

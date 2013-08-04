@@ -1,5 +1,5 @@
-<p>Welcome <%= @email %>!</p>
+<p>خوش آمدی <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>برای تایید کاربری خود بر روری لینک زیر کلیک کنید:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p><%= link_to 'تایید و ورود به طالع بین', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>

@@ -55,7 +55,13 @@ class UsersController < ApplicationController
   end
 
   def list
-    @users = User.order('updated_at DESC').paginate :page => params[:page]
+    if params[:type].blank?
+      @users = User.order('created_at DESC').paginate :page => params[:page]
+    elsif params[:type] == 'login'
+      @users = User.order('last_sign_in_at DESC').paginate :page => params[:page]
+    elsif params[:type] == 'login_count'
+      @users = User.order('sign_in_count DESC').paginate :page => params[:page]
+    end
   end
 
   def actas

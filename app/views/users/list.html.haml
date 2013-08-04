@@ -1,10 +1,12 @@
 .row-fluid.margined
   .span12
     .box
-      %h4 
+      =render :partial => '/general/admin_menu'
       .row-fluid.quicklist.fn-suggestions
         -@users.each do |user|
           %a.user.fn-suggestion{ :href => "/actas/#{user.id}" }
             %img.img-rounded{ :src => user.avatar(:medium) }
-            %span= user.name
+            %span
+              = user.name
+              %b= user.sign_in_count
       = will_paginate @users

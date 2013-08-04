@@ -1,0 +1,17 @@
+.row-fluid.margined
+  .span12
+    .box
+      =render :partial => '/general/admin_menu'
+      .row-fluid
+        %ul.unstyled.messages
+          -@messages.each do |message|
+            %li.span6{ :class => (message.read_at.blank? ? 'alert-info' : 'alert') }
+              %a.fn-read-message{ :href => user_path(message.sender.id)}
+                %img{ :src => message.sender.avatar(:thumb) }
+                = message.sender.name
+                %span.date
+                  = "(مکالمات #{message.cnt})" unless message[:cnt].blank?
+                  = distance_of_time_in_words_to_now message.created_at
+                  پیش
+                %span.message= truncate message.body, :length => 60
+      = will_paginate @messages

@@ -1,0 +1,34 @@
+%h4
+  -if params[:type]=='login'
+    آخرین ورود
+  -elsif params[:type]=='login_count'
+    تعداد ورود
+  -elsif params[:type]=='login_count'
+    تعداد ورود
+  -elsif params[:type]=='conversation'
+    تعداد مکالمات
+  -elsif controller_name=='users'
+    عضویت
+  -elsif controller_name=='messages'
+    پیام جدید 
+%ul.nav.nav-pills
+  %li.dropdown
+    %a.dropdown-toggle{ :data => { :toggle => "dropdown" } } 
+      کاربری
+      %b.caret
+    %ul.dropdown-menu
+      %li
+        %a{ :href => users_list_path } عضویت
+      %li
+        %a{ :href => users_list_path(:type => 'login') } آخرین ورود
+      %li
+        %a{ :href => users_list_path(:type => 'login_count') } تعداد ورود
+  %li.dropdown
+    %a.dropdown-toggle{ :data => { :toggle => "dropdown" } } 
+      پیام ها
+      %b.caret
+    %ul.dropdown-menu
+      %li
+        %a{ :href => list_messages_path } پیام های جدید
+      %li
+        %a{ :href => list_messages_path(:type => :conversation) } حداقل ٢ بار رد شده

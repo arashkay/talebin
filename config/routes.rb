@@ -34,8 +34,12 @@ TalebinCom::Application.routes.draw do
   end
   resources :horoscopes
   resources :celebrities
-  resources :messages
-  
+  resources :messages do
+    collection do
+      get :list  #'/messages/list' => 'users#list'
+    end
+  end
+
   root :to => 'general#index'
 
   # The priority is based upon order of creation:
