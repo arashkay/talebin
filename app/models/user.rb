@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   self.per_page = 50
 
   serialize :today
+  serialize :track
 
   def avatar_thumb
     avatar(:thumb)
@@ -57,6 +58,16 @@ class User < ActiveRecord::Base
 
   def conversation_with(user_id)
     Message.conversation( id, user_id)
+  end
+
+  def force_avatar!
+    return unless avatar_file_name.blank?
+    track[:force_avatar] = track[:force_avatar].blank? ? 1 : (track[:force_avatar]+1)
+    save
+  end
+
+  def forced_avatar?
+    !track[:force_avatar].blank? && track[:force_avatar]>3 && avatar_file_name.blank?
   end
 
 end

@@ -4,6 +4,11 @@
       .reload{ :data => { :remote => suggest_path, :callback => 'talebin.core.suggestions' } }
         %i.icon-refresh.icon-3x
       %h4 نظر شما در مورد این افراد؟
+      .fn-no-more-suggestion.alert{ :class => current_user.forced_avatar? ? '' : 'temphidden' }
+        %h5 شما از نظردهی بر عکس دیگران محروم شدید
+        %p 
+          برای  مشاهده عکس دیگران لطفا ابتدا عکس خود را بگذارید. تنها کاربرانی که عکس دارند قادر به مشاهده عکس یکدیگر هستند.
+          %a.btn.btn-info{ :href => profile_path } ارسال عکس 
       .row-fluid.quicklist.fn-suggestions
         .template
           %a.user.fn-suggestion{ :loop => :true }
@@ -12,13 +17,14 @@
             .thumbs
               %i.icon-thumbs-up.icon-2x.icon-flip-horizontal{ :data => { :remote => point_path('%#id%',1).gsub('%23', '#'), :callback => 'talebin.core.point' } }
               %i.icon-thumbs-down.icon-2x{ :data => { :remote => point_path('%#id%',-1).gsub('%23', '#'), :callback => 'talebin.core.point' } }
-        -@suggestions.each do |user|
-          %a.user.fn-suggestion
-            %img.img-rounded{ :src => user.avatar(:medium) }
-            %span= user.name
-            .thumbs
-              %i.icon-thumbs-up.icon-2x.icon-flip-horizontal{ :data => { :remote => point_path(user.id,1), :callback => 'talebin.core.point' } }
-              %i.icon-thumbs-down.icon-2x{ :data => { :remote => point_path(user.id,-1), :callback => 'talebin.core.point' } }
+        -unless current_user.forced_avatar?
+          -@suggestions.each do |user|
+            %a.user.fn-suggestion
+              %img.img-rounded{ :src => user.avatar(:medium) }
+              %span= user.name
+              .thumbs
+                %i.icon-thumbs-up.icon-2x.icon-flip-horizontal{ :data => { :remote => point_path(user.id,1), :callback => 'talebin.core.point' } }
+                %i.icon-thumbs-down.icon-2x{ :data => { :remote => point_path(user.id,-1), :callback => 'talebin.core.point' } }
 .row-fluid
   .span4
     = render :partial => 'shared_side', :locals => { :user => current_user }

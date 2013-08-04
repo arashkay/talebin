@@ -30,7 +30,12 @@ class UsersController < ApplicationController
   end
 
   def suggest
-    render :json => current_user.matches(9) , :methods => [:avatar_medium]
+    current_user.force_avatar!
+    if current_user.forced_avatar?
+      render :json => nil
+    else
+      render :json => current_user.matches(9) , :methods => [:avatar_medium]
+    end
   end
 
   def respond

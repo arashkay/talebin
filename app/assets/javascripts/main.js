@@ -63,6 +63,7 @@ talebin.core = {
   suggestions: function(data){
     var list = $('.fn-suggestions');
     $('.fn-suggestion:visible', list).remove();
+    if(data==null) return $('.fn-no-more-suggestion').show();
     $('.fn-suggestion:hidden').template( data, { appendTo: list } );
   },
   point: function(){
