@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 
   serialize :today
   serialize :track
+  before_create :set_tracking
 
   def avatar_thumb
     avatar(:thumb)
@@ -28,6 +29,10 @@ class User < ActiveRecord::Base
 
   def mailboxer_email
     return nil
+  end
+
+  def set_tracking
+    self[:track] = { :force_avatar => 0 }
   end
 
   def self.with_identity(id, size)
