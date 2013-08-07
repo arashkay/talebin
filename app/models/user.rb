@@ -72,7 +72,11 @@ class User < ActiveRecord::Base
   end
 
   def forced_avatar?
-    !track[:force_avatar].blank? && track[:force_avatar]>3 && avatar_file_name.blank?
+    !track.blank? && track[:force_avatar]>3 && avatar_file_name.blank?
+  end
+
+  def self.last_30_days
+    User.select('count(id) as cnt,CAST(created_at AS DATE) as date').where(["created_at > ?", Date.today-30.days]).group('date')
   end
 
 end

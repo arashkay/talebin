@@ -10,6 +10,7 @@ TalebinCom::Application.routes.draw do
     match '/users/respond/:id/:value' => 'users#respond', :as => :respond
     match '/users/invite/:id' => 'users#invite', :as => :invite
     get   '/users/list' => 'users#list'
+    get   '/users/charts' => 'users#charts'
     get   '/actas/:id' => 'users#actas'
     post  '/users/update' => 'users#update', :as => :update_user
     match '/users/:id/avatar' => 'users#avatar', :as => :avatar

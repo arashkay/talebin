@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
 
   def home
+    current_user.force_avatar!
     @suggestions = current_user.matches(9)
   end
 

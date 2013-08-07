@@ -43,8 +43,8 @@ before "deploy:create_symlink", "symlinks:create"
 namespace :symlinks do
   task :create, :roles => :app do
     run "cd #{release_path}/public && rm system -rf"
-    run "cd #{release_path}/public && ln -s ~/new.talebin.com/shared/system system"
-    #run "cd #{release_path}/public && ln -s #{shared_path}/system system"
+    #run "cd #{release_path}/public && ln -s ~/new.talebin.com/shared/system system"
+    run "cd #{release_path}/public && ln -s #{shared_path}/system system"
   end
 end
 

@@ -1,0 +1,9 @@
+.row-fluid.margined
+  .span12
+    .box
+      =render :partial => '/general/admin_menu'
+      .row-fluid
+        - User.last_30_days.each do |s|
+          .btn-group
+            .btn= s.date.strftime '%A'
+            .btn= s.cnt

@@ -21,7 +21,7 @@
             %span تغییر عکس
             %input{ :type => 'file', :name => 'avatar', :data => { :url => avatar_path(current_user.id, :format => :json), :uploader => true, :callback => 'talebin.core.avatar' } }
         .span10
-          %h4= current_user.name
+          %h4= current_user.name || 'اطلاعات شما'
           .alert.margined
             از اطلاعات زیر تنها نام و عکس شما از دید دیگران قابل مشاهده است. باقی اطلاعات تنها در جهت ارائه سرویس بهتر به شما استفاده می شود.
           .form.fn-profile
