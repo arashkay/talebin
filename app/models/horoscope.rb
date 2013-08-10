@@ -1,5 +1,6 @@
 class Horoscope < ActiveRecord::Base
-
+  
+  attr_accessible :description, :sign, :date
   before_create :create_uid
 
 private

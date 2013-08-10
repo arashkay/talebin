@@ -35,6 +35,7 @@ TalebinCom::Application.routes.draw do
   end
   resources :horoscopes
   resources :celebrities
+  resources :surveys
   resources :messages do
     collection do
       get :list  #'/messages/list' => 'users#list'

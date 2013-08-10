@@ -1,0 +1,21 @@
+.row-fluid
+  .span12
+    .box
+      %h1 طالع هفتگی
+      %ul
+        -@horoscopes.each do |h|
+          %li
+            %b
+              = h.date.strftime '%d %b'
+              = "(#{Sign.fa h.sign})"
+            = truncate h.description, :length => 100
+      =form_for Horoscope.new do
+        %label تاریخ
+        %input{ :type => :text, :name => 'date', :placeholder => '3/28/2012' }
+        %ul.inline
+          -(1..12).to_a.each do |m|
+            %li
+              %label توضیح (#{Sign.fa m})
+              %textarea{ :name => "horoscope[#{m}][description]", :rows => 7, :style => 'width:500px' }
+              %input{ :type => :hidden, :name => "horoscope[#{m}][sign]", :value => m }
+        %button.btn ذخیره

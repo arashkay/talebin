@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :authenticate_user!
+  before_filter :authenticate_admin!, :only => :list
 
   def home
     current_user.force_avatar!
