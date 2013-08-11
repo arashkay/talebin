@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
       where( :read_at => nil ).limit(limit)
     end
   end
+  has_many :survey_users
 
   self.per_page = 50
 

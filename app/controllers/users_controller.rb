@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def home
     current_user.force_avatar!
     @suggestions = current_user.matches(9)
+    @surveys = Survey.where(['survey_users.user_id <> ?',current_user.id]).joins(:survey_users).limit(3)
   end
 
   def show
