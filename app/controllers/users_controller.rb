@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def home
     current_user.force_avatar!
     @suggestions = current_user.matches(9)
-    @surveys = Survey.where(['survey_users.user_id <> ?',current_user.id]).joins(:survey_users).limit(3)
+    @surveys = Survey.where(['survey_users.user_id <> ? OR survey_users.user_id IS NULL',current_user.id]).joins('LEFT JOIN survey_users ON survey_users.survey_id = surveys.id').limit(3)
   end
 
   def show

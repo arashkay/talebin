@@ -30,4 +30,9 @@
             %textarea{ :name => 'survey[demo]' }= @survey.demo
         .control-group
           .controls
+            %label
+              %input{ :type => :checkbox, :name => 'survey[is_live]', :value => @survey.is_live }
+              قابل استفاده
+        .control-group
+          .controls
             %button.btn ذخیره

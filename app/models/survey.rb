@@ -1,7 +1,8 @@
 class Survey < ActiveRecord::Base
-  attr_accessible :address, :name, :main, :demo
+  attr_accessible :address, :name, :main, :demo, :is_live
 
-  validates :address, :uniqueness => true
+  validates :address, :uniqueness => true, :presence => true
+  validates :name, :presence => true
 
   has_many :survey_users
 
