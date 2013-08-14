@@ -1,7 +1,7 @@
 %tr
   %td چند ساعت در روز پای کامپیوتری؟
 %tr
-  %td
+  %td{ :type => :radiogroup }
     .row-fluid
       .span6 
         %input{ :type => :radio, :name => 'survey[q1]', :value => '10' }
@@ -19,7 +19,7 @@
 %tr
   %td اگه یه وسیله دیجیتالت خراب بشه چیکار میکنی؟
 %tr
-  %td
+  %td{ :type => :radiogroup }
     .row-fluid
       .span6 
         %input{ :type => :radio, :name => 'survey[q2]', :value => '1000' }
@@ -37,7 +37,7 @@
 %tr
   %td تعریف دوست اینترنتی برای شما؟
 %tr
-  %td
+  %td{ :type => :radiogroup }
     .row-fluid
       .span6 
         %input{ :type => :radio, :name => 'survey[q3]', :value => '100000' }
@@ -55,7 +55,7 @@
 %tr
   %td= @survey.main
 %tr
-  %td
+  %td{ :type => :radiogroup }
     .row-fluid
       .span6 
         %input{ :type => :radio, :name => 'survey[q4]', :value => 'برای چت و ایمیل' }

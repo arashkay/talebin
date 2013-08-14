@@ -2,8 +2,31 @@
   .span12
     .box
       =render :partial => '/general/admin_menu'
+      %h2 ثبت نام
       .row-fluid
         - User.last_30_days.each do |s|
           .btn-group
             .btn= s.date.strftime '%A'
             .btn= s.cnt
+      %h2 نظر سنجی
+      .row-fluid
+        - SurveyUser.performance.each do |s|
+          .btn-group
+            .btn= s.name
+            .btn= s.cnt
+      %h2 آمار
+      -last=0
+      -@surveys.each_with_index do |s,i|
+        -if last!=s.id
+          -last=s.id
+          %table.table.table-striped
+            %tr
+              %th سوال
+              -@surveys.drop(i).each do |m|
+                -break if m.id!=last
+                %th= m.reply
+            %tr
+              %th= @surveys[i].main
+              -@surveys.drop(i).each do |m|
+                -break if m.id!=last
+                %th= m.cnt

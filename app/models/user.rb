@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable #, :omniauthable #, :confirmable
   
-  attr_accessible :name, :email, :password, :password_confirmation, :gender, :goal, :birthdate
+  attr_accessible :name, :email, :password, :password_confirmation, :gender, :goal, :birthdate, :points
 
   has_attached_file :avatar, :styles => { :medium => "100x100#", :thumb => "30x30#" }, :default_url => "/assets/noavatar-:style.jpg"
   include Amistad::FriendModel

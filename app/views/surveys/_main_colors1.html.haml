@@ -1,7 +1,7 @@
 %tr
   %td رابطه دوستی را چه رنگی میبینی؟
 %tr
-  %td
+  %td{ :type => :radiogroup }
     .row-fluid
       .span6 
         %input{ :type => :radio, :name => 'survey[q1]', :value => '10' }
@@ -40,7 +40,7 @@
 %tr
   %td رنگ کفشی که امروز پوشیدی؟
 %tr
-  %td
+  %td{ :type => :radiogroup }
     .row-fluid
       .span6 
         %input{ :type => :radio, :name => 'survey[q2]', :value => '1000' }
@@ -58,7 +58,7 @@
 %tr
   %td چه رنگی باید از رنگهای زیر حذف بشه؟
 %tr
-  %td
+  %td{ :type => :radiogroup }
     .row-fluid
       .span6 
         %input{ :type => :radio, :name => 'survey[q3]', :value => '100000' }
@@ -97,7 +97,7 @@
 %tr
   %td= @survey.main
 %tr
-  %td
+  %td{ :type => :radiogroup }
     .row-fluid
       .span6 
         %input{ :type => :radio, :name => 'survey[q4]', :value => 'سفید' }

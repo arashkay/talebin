@@ -9,7 +9,8 @@
         %input{ :type => :hidden, :name => :survey_id, :value => params[:id] }
         %table.table.table-striped
           =render :partial => @survey.main_address
-        %button.btn.btn-success ثبت پاسخ تست
+        .alert.alert-error.temphidden.fn-survey-error لطفا همه سوالات را پاسخ دهید.
+        %button.btn.btn-success{ :data => { :validate => true, :parent => 'form', :error => { :handler => 'talebin.core.tests.failed' } } } ثبت پاسخ تست
   .span4
     .box
       %h4 کسانی که این تست را انجام دادند 

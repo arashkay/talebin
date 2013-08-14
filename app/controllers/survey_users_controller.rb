@@ -4,6 +4,7 @@ class SurveyUsersController < ApplicationController
   before_filter :authenticate_admin!, :only => [:index]
 
   def create
+    return redirect_to home_path if SurveyUser.where( :survey_id => params[:id], :user_id => current_user.id ).count > 0
     reply = SurveyUser.new
     reply.survey_id = params[:survey_id]
     reply.user_id = current_user.id
