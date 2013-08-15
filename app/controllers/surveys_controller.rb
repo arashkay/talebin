@@ -28,4 +28,21 @@ class SurveysController < ApplicationController
     end
   end
 
+  def edit
+    @surveys = Survey.order('created_at DESC').all
+    @survey = Survey.find params[:id]
+    render :new
+  end
+
+  def update
+    @survey = Survey.find params[:id]
+    @survey.is_live = false if params[:survey][:is_live].blank?
+    if @survey.update_attributes params[:survey]
+      redirect_to surveys_path
+    else
+      @surveys = Survey.order('created_at DESC').all
+      render :new
+    end
+  end
+
 end

@@ -19,3 +19,5 @@
           %a.user{ :href => user_path(u.hid) }
             %img.img-rounded{ :src => u.avatar(:medium) }
             %span= u.name
+    .margined
+      =render :partial => '/general/ads'

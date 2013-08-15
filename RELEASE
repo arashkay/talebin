@@ -2,27 +2,13 @@ cap deploy
 
 bundle install
 bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile
-
-ln -s ~/new.talebin.com/releases/ current
-
-cd ~/new.talebin.com/current/public/
+touch tmp/restart.txt
 rake db:migrate RAILS_ENV=production
-
-
-
+touch tmp/restart.txt
 
 
 
 cd ~/new.talebin.com/current/public/
 rm system
 ln -s ~/old.talebin.com/public/system system
-
-
-
-
-
-
-
-cd ~/new.talebin.com/current/
-touch tmp/restart.txt
 

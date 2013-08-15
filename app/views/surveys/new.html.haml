@@ -31,7 +31,7 @@
         .control-group
           .controls
             %label
-              %input{ :type => :checkbox, :name => 'survey[is_live]', :value => @survey.is_live }
+              = check_box_tag 'survey[is_live]', true, !!@survey.is_live
               قابل استفاده
         .control-group
           .controls

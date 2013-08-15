@@ -1,3 +1,12 @@
 .box
   %h5 تست های شخصیت
-  =render :partial => 'surveys/demos'
+  .survey
+    -@surveys.each do |s|
+      %h6= s.name
+      %table.table.table-striped
+        %tr
+          %td
+            = s.demo
+            %a.btn.btn-primary{ :href => edit_survey_path(s) } تغییر  تست
+            %a.btn.btn{ :href => survey_path(s) } شروع تست
+        =render :partial => s.demo_address
