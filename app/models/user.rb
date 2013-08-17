@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :gender, :goal, :birthdate, :points
 
   has_attached_file :avatar, :styles => { :medium => "100x100#", :thumb => "30x30#" }, :default_url => "/assets/noavatar-:style.jpg"
+  validates_attachment_content_type :avatar, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png)$/
+
   include Amistad::FriendModel
   has_many :outbox, :class_name => 'Message', :foreign_key => :sender_id, :order => 'created_at DESC'
   has_many :inbox, :class_name => 'Message', :foreign_key => :recipient_id, :order => 'created_at DESC', :group => 'sender_id', :include => :sender do

@@ -10,10 +10,9 @@
     %h6 قبلی رو پول کنید!
   -elsif title == 'buy'
     %h3 قیمت نوش گرونه؟
-    %h6 چرا قدیمیشو نخری؟
+    %h6 چرا دست دو نخری؟
   .row-fluid
     - imgs = [1,2,3,4,5,6].sample(3)
-    - imgs = [4,5,6]
     - if imgs.include? 1
       %a.ads-image{ :href => "http://www.chizmiza.com?mobile&#{title}", :target => '_blank' }
         %img{ :src => "/images/chizmiz1.jpg" }

@@ -92,7 +92,7 @@ class UsersController < ApplicationController
   end
 
   def charts
-    @surveys = Survey.select('surveys.main, surveys.id, count(survey_users.main) as cnt, survey_users.main as reply').joins(:survey_users).group('survey_users.main').order('id DESC')
+    @surveys = Survey.select('surveys.main, surveys.id, count(survey_users.main) as cnt, survey_users.main as reply').joins(:survey_users).group('survey_users.main').order('id DESC, cnt DESC')
   end
 
 end

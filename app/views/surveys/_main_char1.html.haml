@@ -1,0 +1,75 @@
+%tr
+  %td صبح که از خواب پا میشی کدومی؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '10' }
+        کلا تا ١ ساعت هیچی نمیفهمم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '11' }
+        اصولا بد اخلاق
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '12' }
+        بستگی به شب قبل داره
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '13' }
+        اصولا شادم
+%tr
+  %td اگه ماشین جلویت بد برونه؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1000' }
+        بد دهنی میکنم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1100' }
+        تو دلم یچیزی میگم
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1200' }
+        عصبی میشم ولی چیزی نمیگم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1300' }
+        بی خیالم
+%tr
+  %td تا چه اندازه همون فردی هستید جلو دوستاتون که جلو همکارا (یا خانواده)؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '100000' }
+        کمتر از ٢٠ درصد
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '110000' }
+        ٢٠-٥٠ درصد
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '120000' }
+        ٥٠-٨٠ درصد
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '130000' }
+        بالای ٨٠ درصد
+%tr
+  %td= @survey.main
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'هیچی' }
+        هیچی
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'کمتر از ٢٠ تومن' }
+        کمتر از ٢٠ تومن
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => '٢٠ تا ٨٠ تومن ' }
+        ٢٠ تا ٨٠ تومن
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'بالای ٨٠ تومن' }
+        بالای ٨٠ تومن
+%tr
+  %td= @survey.demo
+=render :partial => @survey.demo_address
