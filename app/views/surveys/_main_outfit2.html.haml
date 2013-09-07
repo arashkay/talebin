@@ -1,0 +1,82 @@
+%tr
+  %td پیرهن یا بلوزتو بعد از چندبار پوشیدن کثیف درنظر میگیری؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '10' }
+        بعداز یکبار
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '11' }
+        ٢-٣ بار
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '12' }
+        یک هفته
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '13' }
+        هر موقع حس کنم بو میده
+%tr
+  %td کفشتو چندبار تمیز میکنی تو ماه؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1000' }
+        اصلا نمیکنم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1100' }
+        ٢-٣ ماه یکبار
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1200' }
+        ماهی ١ بار
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1300' }
+        هفته ١بار
+%tr
+  %td لباس دوستاتو می پوشی؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '100000' }
+        نه فقط لباس خودم رو میپوشم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '110000' }
+        اره مشکلی ندارم
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '120000' }
+        بستگی داره اگه آدم تمیزی باشه
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '130000' }
+        اگه مجبور باشم وگرنه نه
+%tr
+  %td= @survey.main
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'اره خریدم' }
+        اره خریدم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'اره از دوستم خریدم' }
+        اره از دوستم خریدم
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'نخریدم ولی اگه قیمتش خوب باشه چرا نه' }
+        نخریدم ولی اگه قیمتش خوب باشه چرا نه
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'نخریدم و دوست ندارم دست دوم' }
+        نخریدم و دوست ندارم دست دوم
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'آره آنلاین شده بخرم' }
+        آره آنلاین شده بخرم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'آره آنلاین می گردم ولی نخریدم تا آلان' }
+        آره آنلاین می گردم ولی نخریدم تا آلان
+%tr
+  %td= @survey.demo
+=render :partial => @survey.demo_address

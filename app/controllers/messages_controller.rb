@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
 
   def list
     if params[:type].blank?
-      @messages = Message.where( :read_at => nil ).paginate :page => params[:page]
+      @messages = Message.where( :read_at => nil ).order('created_at DESC').paginate :page => params[:page]
     elsif params[:type] == 'conversation'
       @messages = Message.select( "count(sender_id) as cnt,sender_id,body,recipient_id,created_at,read_at" ).group('sender_id').order('cnt DESC').paginate :page => params[:page]
     end

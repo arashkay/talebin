@@ -9,6 +9,8 @@
               = h.date.strftime '%d %b'
               = "(#{Sign.fa h.sign})"
             = truncate h.description, :length => 100
+            = render :partial => 'general/share', :locals => { :url => weekly_url(h.uid)  }
+            %a.btn{ :href => weekly_path(h.uid) } مشاهده
       =form_for Horoscope.new do
         %label تاریخ
         %input{ :type => :text, :name => 'date', :placeholder => '3/28/2012' }

@@ -7,6 +7,10 @@
     تعداد ورود
   -elsif params[:type]=='conversation'
     تعداد مکالمات
+  -elsif params[:type]=='bad_rate'
+    عکس بد 
+  -elsif params[:type]=='good_rate'
+    عکس خوب
   -elsif controller_name=='users'
     عضویت
   -elsif controller_name=='messages'
@@ -25,6 +29,10 @@
         %a{ :href => users_list_path(:type => 'login_count') } تعداد ورود
       %li
         %a{ :href => users_charts_path(:type => 'user_charts') } نمودار
+      %li
+        %a{ :href => users_list_path(:type => 'bad_rate') } عکس بد
+      %li
+        %a{ :href => users_list_path(:type => 'good_rate') } عکس خوب
   %li.dropdown
     %a.dropdown-toggle{ :data => { :toggle => "dropdown" } } 
       پیام ها

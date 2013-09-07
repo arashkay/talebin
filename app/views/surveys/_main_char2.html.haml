@@ -1,0 +1,97 @@
+%tr
+  %td تو خیابون دعوا ببینی چیکار میکنی؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '10' }
+        وای میستم نگاه میکنم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '11' }
+        بی تفاوت رد میشم 
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '12' }
+        با موبایل فیلم میگیرم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '13' }
+        میرم جدا کنمشون 
+%tr
+  %td دوستت سر قرار دیر برسه چیکار میکنی؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1000' }
+        ول میکنم میرم 
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1100' }
+        کلا قاطی میکنم 
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1200' }
+        صبر میکنم ولی اومد تیکه میندازم 
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1300' }
+        صبر میکنم و اومد چیزی نمیگم 
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1400' }
+        نگران میشم 
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1500' }
+        خودم رو با یچیزی سرگرم میکنم تا بیاد 
+%tr
+  %td همکارت ناراحتت کنه چیکار میکنی؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '100000' }
+        شاکی میشم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '110000' }
+        بی خیال رد میشم
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '120000' }
+        بهش میگم حسم رو
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '130000' }
+        به رییسم میگم
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '140000' }
+        تلافی میکنم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '150000' }
+        هیچکدام
+%tr
+  %td= @survey.main
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'میرم تو اینترنت' }
+        میرم تو اینترنت
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'میرم خرید ولی چیزی نمیخرم' }
+        میرم خرید ولی چیزی نمیخرم
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'میرم خرید و حتما یچیزی میخرم' }
+        میرم خرید و حتما یچیزی میخرم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'میرم رستوران یا کافی شاپ' }
+        میرم رستوران یا کافی شاپ
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'میرم خونه دوستم یا فامیل' }
+        میرم خونه دوستم یا فامیل
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'همیشه کار میکنم اصلا بیکار نمیشم' }
+        همیشه کار میکنم اصلا بیکار نمیشم
+%tr
+  %td= @survey.demo
+=render :partial => @survey.demo_address
+

@@ -6,7 +6,7 @@
         %ul.unstyled.messages
           -@messages.each do |message|
             %li.span6{ :class => (message.read_at.blank? ? 'alert-info' : 'alert') }
-              %a.fn-read-message{ :href => user_path(message.sender.id)}
+              %a.fn-read-message{ :href => "/actas/#{message.sender.id}" }
                 %img{ :src => message.sender.avatar(:thumb) }
                 = message.sender.name
                 %span.date

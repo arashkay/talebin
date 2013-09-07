@@ -77,6 +77,10 @@ class UsersController < ApplicationController
       @users = User.order('last_sign_in_at DESC').paginate :page => params[:page]
     elsif params[:type] == 'login_count'
       @users = User.order('sign_in_count DESC').paginate :page => params[:page]
+    elsif params[:type] == 'bad_rate'
+      @users = User.where('points < 0').order('points DESC').paginate :page => params[:page]
+    elsif params[:type] == 'good_rate'
+      @users = User.where('points > 0').order('points DESC').paginate :page => params[:page]
     end
   end
 
