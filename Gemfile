@@ -17,7 +17,7 @@ gem 'will_paginate'
 gem "paperclip", "~> 2.3"
 gem 'contacts'
 gem 'hpricot'
-gem 'uuidtools'
+gem 'uuidtools', :git => 'git@github.com:sporkmonger/uuidtools.git'
 gem 'capistrano'
 gem 'ruby-debug'
 #gem 'mailboxer'
