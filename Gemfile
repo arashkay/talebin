@@ -10,12 +10,12 @@ gem 'mysql2'
 gem 'json'
 gem 'amistad'
 gem 'haml-rails'
-gem 'devise'
+gem 'devise',          '3.0.2'
 gem 'oa-openid', :require => 'omniauth/openid'
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'will_paginate'
 gem "paperclip", "~> 2.3"
-gem 'contacts'
+#gem 'contacts'
 gem 'hpricot'
 gem 'uuidtools', :git => 'git@github.com:sporkmonger/uuidtools.git'
 gem 'capistrano'
@@ -38,7 +38,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+#gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

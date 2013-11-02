@@ -13,7 +13,7 @@
             %a.btn{ :href => weekly_path(h.uid) } مشاهده
       =form_for Horoscope.new do
         %label تاریخ
-        %input{ :type => :text, :name => 'date', :placeholder => '3/28/2012' }
+        %input{ :type => :text, :name => 'date', :placeholder => '28/3/2014' }
         %ul.inline
           -(1..12).to_a.each do |m|
             %li

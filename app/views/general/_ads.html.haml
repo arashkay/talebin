@@ -1,8 +1,27 @@
+- adno = rand(1)
 .box.ads-list
-  -if rand(2)==1
+  -if adno == 0
+    .name
+      %a{ :href => 'http://www.kalagheh.com?smalllink', :target => '_blank' } نرم افزار کلاغه
+    %h3
+      اخبار ایران را جذاب تر بخوانید 
+    %p
+      %a{ :href => 'http://www.kalagheh.com?web', :traget => '_blank' } وبسایت 
+      و 
+      %a{ :href => 'http://www.kalagheh.com?app', :target => '_blank' } نرم افزر موبایل 
+      کلاغه (قابل دانلود از بازار ) اخبار روز ایران و دنیا را با تصاویر زیبا از منابع معتبر خبری در اختیار شما دوستان قرار میدهد. 
+    %h5 اخبار همواره در جیب شماست 
+    %p اخبار در نرم افزار موبایل کلاغه همواره در جیب شما ذخیره است و شما در حرکت بدون دسترسی به اینترنت میتوانید اخبار را خوانده و بروز باشید.
+    .btn-group
+      %a.btn.btn-success{ :href => 'http://www.kalagheh.com?button', :target => '_blank' }
+        %i.icon-desktop
+        مشاهده سایت
+      %a.btn.btn-info{ :href => 'http://www.kalagheh.com/apps?button', :target => '_blank' }
+        %i.icon-android 
+        دریافت برنامه
+  -elsif adno == 1
     .name
       %a{ :href => 'http://www.herherkerker.com?smalllink', :target => '_blank' } www.herherkerker.com
-    - sample = rand(3)
     %script{ :Src => 'http://herherkerker.com/daily.js' }
     %h3 جوک روز
     %p.joke{ :data => { :hhkk => 'joke' } } ميخواي کسي فراموشت نکنه ؟! . . . ازش پول قرض بگير
@@ -10,8 +29,7 @@
     %p 
       %a{ :href => 'http://www.herherkerker.com?textlink', :target => '_blank' } "هرهرکرکر herherkerker.com" 
       لیست ساده ای ازجوک و تکه های بامزه است! هر گاه احساس کردید احتیاج به تنوع و تغییر روحیه دارید به هرهرکرکر سر بزنید ... کاربران ما جوک های خود را با دیگران به اشتراک میگذارند تا روز بهتری را برای هم رقم بزنند!
-
-  -else
+  -elsif adno == 2
     .name
       %a{ :href => 'http://www.chizmiza.com?smalllink', :target => '_blank' } www.chizmiza.com
     -title = ['help','money','buy'].sample
