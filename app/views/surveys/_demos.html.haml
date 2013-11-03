@@ -1,0 +1,9 @@
+.survey
+  -@surveys.each do |s|
+    %h6= s.name
+    %table.table.table-striped
+      %tr
+        %td
+          = s.demo
+          %a.btn.btn-success{ :href => survey_path(s) } شروع تست
+      =render :partial => s.demo_address

@@ -1,0 +1,38 @@
+.row-fluid
+  .span12
+    .box
+      %h1 تست شخصیت
+      %table.table.table-striped
+        %tr
+          %th آدرس
+          %th عنوان
+        -@surveys.each do |s|
+          %tr
+            %td= s.address
+            %td= s.name
+      %h2 تست جدید
+      =form_for @survey, :html => {:class => 'form-horizontal'} do
+        .control-group
+          %label.control-label عنوان
+          .controls
+            %input{ :type => :text, :name => 'survey[name]', :value => @survey.name }
+        .control-group
+          %label.control-label آدرس
+          .controls
+            %input{ :type => :text, :name => 'survey[address]', :value => @survey.address }
+        .control-group
+          %label.control-label سوال اصلی
+          .controls
+            %textarea{ :name => 'survey[main]' }= @survey.main
+        .control-group
+          %label.control-label سوال دمو
+          .controls
+            %textarea{ :name => 'survey[demo]' }= @survey.demo
+        .control-group
+          .controls
+            %label
+              = check_box_tag 'survey[is_live]', true, !!@survey.is_live
+              قابل استفاده
+        .control-group
+          .controls
+            %button.btn ذخیره

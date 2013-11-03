@@ -1,4 +1,4 @@
-ActionMailer::Base.delivery_method :smtp #:active_record, ArMailerRails3::ActiveRecord, :email_class => Email
+#ActionMailer::Base.delivery_method :smtp #:active_record, ArMailerRails3::ActiveRecord, :email_class => Email
 #ActionMailer::Base.delivery_method = :active_record
 ActionMailer::Base.smtp_settings = {
       :address => 'mail.talebin.com',

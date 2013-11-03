@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # This is Jalali-Gregorian date converter.
 #
 # If you need this converter for your rails application just copy this file to your /lib/ directory and add below line to end of your environment.rb.

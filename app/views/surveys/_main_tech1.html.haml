@@ -1,0 +1,82 @@
+%tr
+  %td چند ساعت در روز پای کامپیوتری؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '10' }
+        کمتر از ١ ساعت
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '11' }
+        ١ تا ٣ ساعت
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '12' }
+        بیشتر از ٣ ساعت
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '13' }
+        اگه مجبور بشم
+%tr
+  %td اگه یه وسیله دیجیتالت خراب بشه چیکار میکنی؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1000' }
+        خودم ور میرم تا درست بشه
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1100' }
+        میندازم دور
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1200' }
+        میدم درست کنن
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1300' }
+        میبخشم به یکی
+%tr
+  %td تعریف دوست اینترنتی برای شما؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '100000' }
+        دوست نیستن
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '110000' }
+        میتونن دوست باشن ولی قابل اعتماد نیستن
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '120000' }
+        میتونن دوستای خوبی باشن
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '130000' }
+        دوستای خیلی صمیمی پیدا کردم
+%tr
+  %td= @survey.main
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'برای چت و ایمیل' }
+        برای چت و ایمیل
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'برای ارتباط با دوستان' }
+        برای ارتباط با دوستان و فیسبوک
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'کارمن تو اینترنته!' }
+        کارمن تو اینترنته!
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'بازی و تفریح ' }
+        بازی و تفریح 
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'برای بلاگ خوانی' }
+        برای بلاگ خوانی
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'کار بانکی و خرید اینترنتی' }
+        کار بانکی و خرید اینترنتی
+%tr
+  %td= @survey.demo
+=render :partial => @survey.demo_address

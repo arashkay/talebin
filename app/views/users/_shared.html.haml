@@ -37,3 +37,10 @@
     %h5 طالع این هفته #{Sign.fa user.horoscope.sign}
     %p= user.horoscope.description
     =render :partial => 'general/share', :locals => { :url => weekly_url(user.horoscope.uid)  }
+- if current_user == user 
+  - unless @surveys.blank?
+    .box.margined
+      %h5 تست های شخصیت
+      =render :partial => 'surveys/demos'
+-else
+  .box.margined

@@ -1,0 +1,124 @@
+%tr
+  %td رابطه دوستی را چه رنگی میبینی؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '10' }
+        سفید
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '11' }
+        سیاه
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '12' }
+        قرمز
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '13' }
+        سبز
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '14' }
+        بنفش
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '15' }
+        آبی
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '16' }
+        زرد
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '17' }
+        نارنجی
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '18' }
+        رنگارنگ
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '19' }
+        هیچکدام
+%tr
+  %td رنگ کفشی که امروز پوشیدی؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1000' }
+        سیاه
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1100' }
+        سفید
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1200' }
+        قهوه ای
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1300' }
+        رنگی
+%tr
+  %td چه رنگی باید از رنگهای زیر حذف بشه؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '100000' }
+        نارنجی
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '110000' }
+        زرد
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '120000' }
+        قرمز
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '130000' }
+        سبز
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '140000' }
+        بنفش
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '150000' }
+        آبی
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '160000' }
+        سیاه
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '170000' }
+        سفید
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '180000' }
+        صورتی
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '190000' }
+        هیچکدام
+%tr
+  %td= @survey.main
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'سفید' }
+        سفید
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'سیاه' }
+        سیاه
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'روشن(بجز سفید)' }
+        روشن(بجز سفید)
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'تیره(بجز سیاه)' }
+        تیره(بجز سیاه)
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'نقره ای' }
+        نقره ای
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'هیچکدام' }
+        هیچکدام
+%tr
+  %td= @survey.demo
+=render :partial => @survey.demo_address

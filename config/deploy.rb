@@ -1,8 +1,8 @@
 set :application, "Talebin"
-set :deploy_to,  "/home/arashvps/new.talebin.com"
+set :deploy_to,  "/var/www/talebin.com"
+server "106.186.120.146", :web, :app, :db, :primary => true
+set :user, "webmaster"
 #set :deploy_to,  "/home/arashvps/beta.talebin.com"
-server "ps49055.dreamhost.com", :web, :app, :db, :primary => true
-set :user, "arashvps"
 set :use_sudo, false
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
@@ -43,8 +43,8 @@ before "deploy:create_symlink", "symlinks:create"
 namespace :symlinks do
   task :create, :roles => :app do
     run "cd #{release_path}/public && rm system -rf"
-    run "cd #{release_path}/public && ln -s ~/new.talebin.com/shared/system system"
-    #run "cd #{release_path}/public && ln -s #{shared_path}/system system"
+    #run "cd #{release_path}/public && ln -s ~/new.talebin.com/shared/system system"
+    run "cd #{release_path}/public && ln -s #{shared_path}/system system"
   end
 end
 

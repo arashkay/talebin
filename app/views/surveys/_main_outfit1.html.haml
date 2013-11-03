@@ -1,0 +1,76 @@
+%tr
+  %td صبح که پا میشی کدوم کارو میکنی؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '10' }
+        فقط میرم دستشویی
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '11' }
+        دستشویی و مسواک 
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '12' }
+        دستشویی ،حمام ،مسواک
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q1]', :value => '13' }
+        هیچکدام
+%tr
+  %td بر چه اساسی لباس میپوشی؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1000' }
+        هرچی دم دستم بیاد
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1100' }
+        اگه لباس دیروزم کثیف نبود همون
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1200' }
+        هفته ٢-٣ تا جور مختلف بپوشم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q2]', :value => '1300' }
+        هر روز یجور متفاوت
+%tr
+  %td چی تو خونه میپوشی؟
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '100000' }
+        برام مهم نیست
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '110000' }
+        در حدی که آشنا بیاد زشت نباشه 
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '120000' }
+        در حدی که غریبه بیاد زشت نباشه 
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q3]', :value => '130000' }
+        در حد مهمونی 
+%tr
+  %td= @survey.main
+%tr
+  %td{ :type => :radiogroup }
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'هفته یچیز میخرم' }
+        هفته یچیز میخرم
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'ماهی یچیز میخرم' }
+        ماهی یچیز میخرم
+    .row-fluid
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => '٣ ماه یکبار' }
+        ٣ ماه یکبار
+      .span6 
+        %input{ :type => :radio, :name => 'survey[q4]', :value => 'سال نو یا مراسم خاص' }
+        دم سال نو یا مراسم خاص
+%tr
+  %td= @survey.demo
+=render :partial => @survey.demo_address
+

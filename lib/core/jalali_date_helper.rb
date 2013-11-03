@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # This is Jalali Date tag creator by extending rails FormBuilder.
 #
 # If you need this helper for your rails application just copy this file + 'jalali_date.rb' to your /lib/ directory and add below line to end of your environment.rb.

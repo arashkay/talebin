@@ -1,0 +1,23 @@
+.row-fluid
+  .span12
+    .box
+      %h1 طالع هفتگی
+      %ul
+        -@horoscopes.each do |h|
+          %li
+            %b
+              = h.date.strftime '%d %b'
+              = "(#{Sign.fa h.sign})"
+            = truncate h.description, :length => 100
+            = render :partial => 'general/share', :locals => { :url => weekly_url(h.uid)  }
+            %a.btn{ :href => weekly_path(h.uid) } مشاهده
+      =form_for Horoscope.new do
+        %label تاریخ
+        %input{ :type => :text, :name => 'date', :placeholder => '28/3/2014' }
+        %ul.inline
+          -(1..12).to_a.each do |m|
+            %li
+              %label توضیح (#{Sign.fa m})
+              %textarea{ :name => "horoscope[#{m}][description]", :rows => 7, :style => 'width:500px' }
+              %input{ :type => :hidden, :name => "horoscope[#{m}][sign]", :value => m }
+        %button.btn ذخیره

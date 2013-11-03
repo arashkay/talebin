@@ -9,5 +9,5 @@
             %span
               = user.name
               %b= user.sign_in_count
-              %b= truncate user.email, :length => 10
+              %b= user.points
       = will_paginate @users

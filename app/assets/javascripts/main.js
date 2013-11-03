@@ -49,6 +49,7 @@ talebin.core = {
     });
 
     $('[data-remote]').bind('click', remote );
+    $('[data-validate]').bind('click', talebin.core.validate );
     $('[data-updatable=remote]').on('click', '[data-remote]', remote );
     talebin.core.autoloadMessages();
   },
@@ -59,6 +60,26 @@ talebin.core = {
     hide: function(){
       $('.fn-loading').fadeOut()
     }
+  },
+  validate: function(){
+    var $t = $(this);
+    var f = $t.parents($t.data('parent')+':first');
+    var errors = [];
+    $('input:not([type=radio],[type=checkbox])',f).each(
+      function(){
+        if($(this).val()=='')
+          errors.push([$(this), 'null']);
+      }
+    );
+    $('[type=radiogroup]',f).each(
+      function(){
+        if($('[type=radio]:checked', this).size()==0)
+          errors.push([$(this), 'null']);
+      }
+    );
+    if($t.is('[data-error-handler]'))
+      eval($t.data('error-handler')).call($t, errors);
+    if(errors.length>0) return false;
   },
   suggestions: function(data){
     var list = $('.fn-suggestions');
@@ -118,6 +139,11 @@ talebin.core = {
   replied: function(data){
     $('.fn-send-message textarea').val('');
     $('.fn-chat-message:hidden').template(data);
+  },
+  tests: {
+    failed: function(errors){
+      $('.fn-survey-error').show();
+    }
   }
 }
 talebin.core.init();

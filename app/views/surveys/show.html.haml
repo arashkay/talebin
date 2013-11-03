@@ -1,0 +1,23 @@
+.row-fluid.margined
+  .span8
+    .box.survey
+      %h1
+        = @survey.name
+        (٥ سوال)
+      %p سیستم تست شخصیت با جمع آوری پاسخ شما و مقایسه با دیگران سعی در بهتر شدن کیفیت طالع بین دارد. در پاسخ به سوالات زیر صحیح یا غلطی وجود ندارد و صرفا سلایق شخصی شما دخیل است.
+      =form_for SurveyUser.new do |f|
+        %input{ :type => :hidden, :name => :survey_id, :value => params[:id] }
+        %table.table.table-striped
+          =render :partial => @survey.main_address
+        .alert.alert-error.temphidden.fn-survey-error لطفا همه سوالات را پاسخ دهید.
+        %button.btn.btn-success{ :data => { :validate => true, :parent => 'form', :error => { :handler => 'talebin.core.tests.failed' } } } ثبت پاسخ تست
+  .span4
+    .box
+      %h4 کسانی که این تست را انجام دادند 
+      .row-fluid.friendslist
+        -@users.each do |u|
+          %a.user{ :href => user_path(u.hid) }
+            %img.img-rounded{ :src => u.avatar(:medium) }
+            %span= u.name
+    .margined
+      =render :partial => '/general/ads'
