@@ -4,6 +4,20 @@
       .row-fluid
         .span8.margined
           %h1 طالع بین 
+          - if params[:by] == 'horoscope'
+            .row-fluid
+              .table.horoscopes-map.fn-horoscopes
+                .signs
+                  -@horoscopes.each do |horoscope|
+                    .item
+                      .sign
+                        .arrow.icon-chevron-right.fn-sign-arrow.prev
+                        .image{ :style => "background-image: url(/images/#{horoscope.sign}.jpg)" }
+                        .arrow.icon-chevron-left.fn-sign-arrow.next
+                      .details
+                        %b= "طالع این هفته #{Sign.fa horoscope.sign} :"
+                        = truncate horoscope.description, :length => 100 
+                        %b "برای ادامه ثبت نام کنید..."
           -unless @inviter.blank?
             %p.alert.alert-info 
               دوستت #{@inviter.name}، تو رو به طالع بین دعوت کرد.
@@ -30,11 +44,6 @@
                   %a{ :href => "#{about_path}/#lang" } اینجا رو بخون
                   ؛). چرا چشمک میذاریم تو سایت 
                   %a{ :href => "#{about_path}/#lang" } اینجا رو بخون
-          %h4 دیگر کاربران طالع بین
-          .row-fluid.quicklist
-            -@random_users.each do |user|
-              %a.user
-                %img.img-rounded{ :src => user.avatar(:medium) }
         .span4
           %h4 
             کاربر جدیدی؟
@@ -57,3 +66,9 @@
                 =f.password_field :password_confirmation, :style => 'direction: ltr; text-align: left'
               = f.submit 'عضویت رایگان', :class => 'btn btn-success'
           = render "devise/shared/links"
+      .row-fluid
+        %h4 دیگر کاربران طالع بین
+        .row-fluid.quicklist
+          -@random_users.each do |user|
+            %a.user
+              %img.img-rounded{ :src => user.avatar(:medium) }

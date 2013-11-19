@@ -34,6 +34,7 @@ TalebinCom::Application.routes.draw do
     end
   end
   resources :horoscopes
+  resources :dreams
   resources :celebrities
   resources :surveys
   resources :survey_users, :only => [:create]

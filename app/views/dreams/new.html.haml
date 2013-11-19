@@ -1,0 +1,22 @@
+.row-fluid
+  .box
+    .span12
+      %h1 Dream
+      =form_for @dream, :html => {:class => 'form-horizontal'} do
+        .control-group
+          %label.control-label name
+          .controls
+            %input{ :type => :text, :name => 'dream[name]', :value => @dream.name }
+        .control-group
+          %label.control-label description
+          .controls
+            %textarea.span6{ :rows => 7, :name => 'dream[description]' }= @dream.description
+        .control-group
+          .controls
+            %button.btn ذخیره
+    .row-fluid
+      .span12
+        -@dreams.each do |dream|
+          .alert.alert-success
+            %b= dream.name
+            %p= dream.description

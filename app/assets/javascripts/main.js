@@ -52,6 +52,29 @@ talebin.core = {
     $('[data-validate]').bind('click', talebin.core.validate );
     $('[data-updatable=remote]').on('click', '[data-remote]', remote );
     talebin.core.autoloadMessages();
+    talebin.core.horoscopes();
+  },
+  horoscopes: function(){
+    $('.fn-horoscopes .item:first').show();
+    $('.fn-horoscopes').on( 'click', '.fn-sign-arrow', function(){
+      var $t = $(this);
+      var sign = $t.parents('.item:first');
+      if($t.is('.next')){
+        if(sign.next().size()==0){
+          var next = $('.fn-horoscopes .item:first');
+        }else{
+          var next = sign.next();
+        }
+      }else{
+        if(sign.prev().size()==0){
+          var next = $('.fn-horoscopes .item:last');
+        }else{
+          var next = sign.prev();
+        }
+      }
+      sign.fadeOut();
+      next.fadeIn();
+    })
   },
   loader: {
     show: function(){

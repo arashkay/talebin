@@ -195,3 +195,33 @@ table.vtable
   .pos5
     top: 0%
     left: 36%
+
+.horoscopes-map
+  height: 200px
+  position: relative
+  .arrow
+    height: 60px
+    width: 60px
+    font-size: 60px
+    line-height: 60px
+    color: #ccc
+    &:hover
+      color: #438EB9
+      cursor: pointer
+  .item
+    text-align: center
+    display: none
+    position: absolute
+    width: 100%
+  .sign
+    *
+      vertical-align: middle
+    .image
+      display: inline-block
+      width: 150px
+      height: 150px
+      background: center no-repeat
+      background-size: contain
+  .details
+    display: inline-block
+    width: 90%

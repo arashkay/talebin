@@ -1,0 +1,24 @@
+- content_for :head do
+  %meta{ :name => "description", :content => "طالع بین : بخش تعبیر خواب طالع بین دات کام با بهره گیری از روايت امام جعفر صادق،ابراهیم کرمانی و منوچهر مطيعي تهراني و منابع دیگر خوابتان را تعبیر می کند. " }
+  %meta{ :name => "keywords", :content => "طالع بین ، طالع بینی ، فال ، فالگیری ، عشق، بخت، اختر خوانی، ستاره خوانی، فال با ورق، فال با کارت , تعبیر خواب " }
+.row-fluid
+  .span8
+    .box
+      %h1= "تعبیر خواب (#{@dreams.map(&:name).join('، ')})"
+      %p تمامی تعبیر خواب ها و علائم با بهره گیری از روايت امام جعفر صادق ،ابراهیم کرمانی و منوچهر مطيعي تهراني و منابع دیگر انجام می پذیرد.
+      -@dreams.each do |dream|
+        %h2= dream.name
+        %p= dream.description
+    .box.margined
+      %h3 مشاهده تعبیر خواب دیگر کاربران
+      %p هم اکنون شما میتونید پس از عضویت ، تعبیر خواب دیگر کاربران رو دیده و با آنها تبادل نظر کنید.
+      %a.btn.btn-success{ :href => new_user_registration_path( :by => :dream_sharing_feature ) }
+        %i.icon-user.icon-white
+        تعبیر خواب دیگر کاربران
+      
+  .span4
+    =render :partial => '/general/members'
+    .margined
+      =render :partial => '/general/ads'
+
+
